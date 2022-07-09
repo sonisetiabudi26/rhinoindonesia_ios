@@ -1,0 +1,32 @@
+page-transaction-detail {
+  .hideme {
+    display: none;
+  }
+  .header-personal-transaction {
+    padding-bottom: 10px;
+  }
+  .sub-title-transaction {
+    color: #777;
+  }
+  h4 {
+    color: #f3f3f3;
+  }
+  .title-transaction {
+    color: #f3f3f3;
+    z-index: 999999;
+  }
+  .sub_title {
+    font-size: 12px;
+  }
+  .sub_titles {
+    font-size: 10px;
+    color: #999;
+  }
+  .lines {
+    border-bottom: 0.5px solid #555;
+  }
+  .card-md h3,
+  .card-md h2 {
+    color: #fff !important;
+  }
+}

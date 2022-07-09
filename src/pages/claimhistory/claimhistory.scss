@@ -1,0 +1,30 @@
+page-claimhistory {
+  #customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    // border-collapse: collapse;
+    width: 100% !important;
+    border-radius: 5px;
+  }
+
+  #customers td,
+  #customers th {
+    border: 1px solid #ddd;
+    padding: 4px;
+  }
+
+  #customers tr:nth-child(even) {
+    background-color: #fff;
+  }
+
+  #customers tr:hover {
+    background-color: #fff;
+  }
+
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #2b529d;
+    color: white;
+  }
+}

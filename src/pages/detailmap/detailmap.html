@@ -1,0 +1,36 @@
+<!--
+  Generated template for the DetailmapPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detail Store</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div #map id="map"></div>
+   <ion-row>
+     <ion-item no-lines *ngFor="let store of itemsmap ">
+
+       <h2>{{store.Dist_Name}}</h2>
+       <p>Owner {{store.Owner}}</p>
+       <p>{{store.Phone_Number}}</p>
+       <p>{{store.Address}}</p>
+
+     </ion-item>
+
+   </ion-row>
+</ion-content>
+<ion-footer no-border style="padding:5px;margin:0;background:transparent">
+	<ion-row position="bottom" style="width:100%;text-align:center;padding:0;margin:0;">
+		<a href="https://www.google.com/maps/search/?api=1&query={{itemLat}},{{itemLon}}" target="_blank" full ion-button style="height:50px;width:100%;margin:0px;padding:25px;background:orange"><ion-icon ios="ios-navigate" md="md-navigate"></ion-icon>&nbsp; <span style="color:#fff;">Direction</span> </a>
+    <!-- <button (click)="sendEmail()" color='dark' full ion-button style="height:50px;width:20%;margin:0 3px 0 3px;padding:25px"><ion-icon ios="ios-mail" md="md-mail"></ion-icon>&nbsp; <span style="color:#fff;">Email</span> </button>
+    <button (click)="launchDialer()" full ion-button style="height:50px;width:19%;background:green;margin:0px;padding:25px"><ion-icon ios="ios-call" md="md-call"></ion-icon>&nbsp; <span style="color:#fff;">Call</span> </button> -->
+	</ion-row>
+</ion-footer>

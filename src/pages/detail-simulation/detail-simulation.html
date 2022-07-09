@@ -1,0 +1,198 @@
+<!--
+  Generated template for the DetailSimulationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Detail Simulation</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="row">
+    <div class="box-info">
+      {{getBalikmodal()}}
+
+    </div>
+  </div>
+  <div class="row title-table" style="margin-top: 10px">
+    <div class="col">Investasi</div>
+  </div>
+  <!-- <div class="row headers">
+    <div class="col">Item</div>
+    <div class="col">Qty</div>
+    <div class="col">Price</div>
+  </div>
+  <div class="row" *ngFor="let group of paketAllItem">
+    <div class="col">{{group.Product_Name}}</div>
+    <div class="col qty">{{group.Product_Qty}}</div>
+    <div class="col2 price">-</div>
+  </div> -->
+  <table id="customers">
+    <tr>
+      <td style="width: 60%;"><b>Items</b></td>
+      <td style="width: 10%;"><b>Qty</b></td>
+      <td style="width: 30%;"><b>Price</b></td>
+    </tr>
+    <tbody>
+      <tr *ngFor="let group of paketAllItem;let idx = index">
+        <td>{{(group.Product_Name==null?group.Product_Name_Manual:group.Product_Name)}}</td>
+        <td>{{group.Product_Qty}}</td>
+        <td *ngIf="idx==0" style="text-align: right;" [attr.rowspan]="paketAllItem.length">{{hargaPaket}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <div class="row totaljumlah">
+    <div class="col" style="text-align: center; font-weight: bold" col-8>
+      Total Investasi
+    </div>
+    <div class="col price" style="font-weight: bold" col-4>{{hargaPaket}}</div>
+  </div> -->
+  <div class="row title-table">
+    <div class="col">Simulasi COP (Cost of Production)</div>
+  </div>
+  <table id="customers">
+    <tbody *ngFor="let att of detailItem;let idx = index">
+      <tr>
+        <td style="width: 60%;">{{att.nameBahan}} uk {{att.ukuranDesign}}</td>
+        <td style="width: 10%;">1</td>
+        <td style="width: 30%;text-align: right;">{{att.priceBahan}}</td>
+      </tr>
+      <tr>
+        <td style="width: 60%;">{{att.mediaSablon}}</td>
+        <td style="width: 10%;">1</td>
+        <td style="width: 30%;text-align: right;">{{att.hargaSablon}}</td>
+      </tr>
+      <tr>
+        <td style="width: 60%;">ASUMSI OPRASIONAL COST Listrik , Karyawan , Consumable Part</td>
+        <td style="width: 10%;">1</td>
+        <td style="width: 30%;text-align: right;">1,000</td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <table id="customers">
+      <tbody *ngFor="let att of detailItem; let idx = index">
+        <tr>
+          <td style="width: 70%;">
+            <b>Total Cost Produksi</b>
+          </td>
+          <td style="width: 30%;text-align: right;"><b>{{getTotalPrice(idx)}}</b></td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <div class="row">
+      <div class="col">{{att.nameBahan}} uk {{att.ukuranDesign}}</div>
+      <div class="col qty">1</div>
+      <div class="col price">{{att.priceBahan}}</div>
+    </div>
+    <div class="row">
+      <div class="col">{{att.mediaSablon}}</div>
+      <div class="col qty">1</div>
+      <div class="col price">{{att.hargaSablon}}</div>
+    </div> -->
+    <!-- <div class="row">
+      <div class="col">
+        ASUMSI OPRASIONAL COST Listrik , Karyawan , Consumable Part
+      </div>
+      <div class="col qty">1</div>
+      <div class="col price">1,000</div>
+    </div> -->
+    <!-- <div class="row totaljumlah">
+      <div class="col" style="text-align: center; font-weight: bold;width:70%" col-8>
+        Total Cost Produksi
+      </div>
+      <div class="col price" style="font-weight: bold;width:30%" col-4>{{getTotalPrice(idx)}}</div>
+    </div> -->
+  </div>
+  <div class="row title-table">
+    <div class="col">Simulasi BEP (Break Event Point)</div>
+  </div>
+  <!-- <div *ngFor="let item of detailItem; let idx = index">
+    <div class="row">
+      <div class="col">Cost Produksi produk</div>
+      <div class="col qty">1</div>
+      <div class="col price">{{item.costProduksi}}</div>
+    </div>
+    <div class="row">
+      <div class="col">Asumsi jual produk</div>
+      <div class="col qty">1</div>
+      <div class="col price">{{item.hargaJual}}</div>
+    </div>
+
+    <div class="row totaljumlah">
+      <div class="col" style="text-align: center; font-weight: bold" col-8>
+        Profit Penjualan {{item.mediaSablon}}
+      </div>
+      <div class="col price" style="font-weight: bold" col-4>{{getMargin(idx)}}</div>
+    </div>
+
+  </div> -->
+  <table id="customers">
+    <tbody *ngFor="let item of detailItem; let idx = index">
+      <tr>
+        <td style="width: 60%;">
+          Cost Produksi produk
+        </td>
+        <td style="width: 10%;">
+          1
+        </td>
+        <td style="width: 30%;text-align: right;">{{item.costProduksi}}</td>
+      </tr>
+      <tr>
+        <td>
+          Asumsi jual produk
+        </td>
+        <td>
+          1
+        </td>
+        <td style="text-align: right">{{item.hargaJual}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table id="customers">
+    <tbody *ngFor="let item of detailItem; let idx = index">
+      <tr>
+        <td style="width: 70%;">
+          <b> Profit Penjualan {{item.mediaSablon}}</b>
+        </td>
+        <td style="width: 30%;text-align: right;"><b>{{getMargin(idx)}}</b></td>
+      </tr>
+    </tbody>
+  </table>
+  <table id="customers">
+    <tbody *ngFor="let item of detailItem; let idx = index">
+      <tr style="background-color: #000;color:#fff;">
+        <td style="width: 60%;">
+          <b> 1 hari Produksi {{item.mediaSablon}}</b>
+        </td>
+        <td style="width: 10%;">{{item.produksi}}</td>
+        <td style="width: 30%;text-align: right;"><b>{{valueTotalproduksi(idx)}}</b></td>
+      </tr>
+      <tr style="background-color: #000;color:#fff;">
+        <td>
+          <b>1 bulan / 25 hari produksi {{item.mediaSablon}}</b>
+        </td>
+        <td>{{valueProduksimonth(idx)}}</td>
+        <td style="text-align:right "><b>{{ValueTotalproduksimonth(idx)}}</b></td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <div *ngFor="let item of detailItem; let idx = index">
+    <div class="row">
+      <div class="col">1 hari Produksi {{item.mediaSablon}}</div>
+      <div class="col qty">{{item.produksi}}</div>
+      <div class="col price">{{valueTotalproduksi(idx)}}</div>
+    </div>
+    <div class="row">
+      <div class="col">1 bulan / 25 hari produksi {{item.mediaSablon}}</div>
+      <div class="col qty">{{valueProduksimonth(idx)}}</div>
+      <div class="col price">{{ValueTotalproduksimonth(idx)}}</div>
+    </div>
+  </div> -->
+</ion-content>

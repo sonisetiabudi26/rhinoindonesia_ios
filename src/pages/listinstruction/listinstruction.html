@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title style="float:left !important">List Instructions</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="contentback">
+  <ion-refresher (ionRefresh)="forceReload($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+  <!-- <ion-refresher (ionRefresh)="forceReload($event)">
+    <ion-refresher-content style="color:#fff" refreshingText="Refresh Data">
+    </ion-refresher-content>
+  </ion-refresher> -->
+
+  <div class="container">
+    <div class="tabrow" *ngIf="msg != 'empty'" padding>
+      <ion-list *ngFor="let item of items">
+        <a href="{{item.Link}}" target="_blank" style="width:100%;text-decoration: none;">
+        
+        <ion-item
+          style="border-bottom:0.2px solid #888"
+          
+        >
+          <ion-label>{{ item.Instructions_name }}</ion-label>
+        </ion-item>
+        </a>
+      </ion-list>
+    </div>
+
+    <ion-item no-lines *ngIf="msg == 'empty'" class="tabrow">
+      <ion-row style="text-align:center;margin:0px auto;">
+        <img
+          src="/assets/imgs/no_data_rhino.png"
+          style="width:30%;height:30%;text-align:center;margin:0px auto;left:50;top:50"
+        /><br />
+      </ion-row>
+      <ion-row style="text-align:center;margin:0px auto;left:50;top:50"
+        ><h4
+          style="color:#fff;text-align:center;margin:0px auto;left:50;top:50"
+        >
+          No data result
+        </h4></ion-row
+      >
+    </ion-item>
+  </div>
+</ion-content>

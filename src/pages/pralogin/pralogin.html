@@ -1,0 +1,56 @@
+<ion-content class="login-content">
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col col-12>
+      <img
+        src="assets/imgs/logo_top.png"
+        style=" object-fit: cover;height:200px;padding-top:20px;"
+      />
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box">
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button class="submit-btn" full (click)="login()">
+          <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>&nbsp;Login
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button class="submit-btn-signup" full (click)="signup()">
+          <ion-icon
+            style="color:orange"
+            ios="ios-log-in"
+            md="md-log-in"
+          ></ion-icon
+          >&nbsp;<span style="color:orange">Sign Up</span>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+     
+      <ion-col class="signup-col">
+        <button ion-button class="submit-btn-signup" full (click)="loginbycashier()">
+          <ion-icon
+            style="color:orange"
+            ios="ios-log-in"
+            md="md-log-in"
+          ></ion-icon
+          >&nbsp;<span style="color:orange">Sign in by Cashier</span>
+        </button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<!-- <ion-footer style="width:100%;background:transparent;">
+  <ion-item
+    no-lines
+    style="color:#888;margin:0px auto;background:transparent;text-align:center;font-size:14px;"
+  >
+    <label style="text-align:center;margin:0px auto;color:#999 !important"
+      >Copyright 2013 - 2019 © PT Rhino Indonesia Sukses</label
+    >
+  </ion-item>
+</ion-footer> -->

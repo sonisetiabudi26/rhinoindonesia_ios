@@ -1,0 +1,132 @@
+<ion-content class="login-content">
+  <ion-row class="logo-row">
+    <ion-col>
+      <ion-buttons end>
+        <button
+          id="notification-button"
+          style="background:#2b529d;color:#2b529d !important"
+          ion-button
+          icon-only
+          (click)="closeModal()"
+        >
+          <ion-icon
+            style="color:orange"
+            ios="ios-close"
+            md="md-close"
+          ></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col col-12 style="min-height:250px;"> </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="container">
+    <ion-row class="tabrow">
+      <div class="login-box">
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+          <ion-row>
+            <ion-col>
+              <ion-list inset>
+                <ion-item
+                  no-lines
+                  [ngClass]="{
+                    'error-border':
+                      !authForm.controls.emailCust.valid &&
+                      authForm.controls.emailCust.touched
+                  }"
+                >
+                  <ion-input
+                    type="text"
+                    formControlName="emailCust"
+                    [(ngModel)]="email"
+                    placeholder="Email/Phone Number"
+                    name="email"
+                    required
+                  ></ion-input>
+                </ion-item>
+                <div
+                  style="margin-top:-10px"
+                  *ngIf="
+                    authForm.controls.emailCust.hasError('required') &&
+                    authForm.controls.emailCust.touched
+                  "
+                >
+                  <p class="alert">* Email/Phone number required</p>
+                </div>
+                <br />
+                <ion-item
+                  no-lines
+                  [ngClass]="{
+                    'error-border':
+                      !authForm.controls.password.valid &&
+                      authForm.controls.password.touched
+                  }"
+                >
+                  <ion-input
+                    type="password"
+                    formControlName="password"
+                    [(ngModel)]="pass"
+                    placeholder="Password"
+                    name="pass"
+                    required
+                  ></ion-input>
+                </ion-item>
+                <div
+                  style="margin-top:-10px"
+                  *ngIf="
+                    authForm.controls.password.hasError('required') &&
+                    authForm.controls.password.touched
+                  "
+                >
+                  <p class="alert">* Password required</p>
+                </div>
+                <div
+                  style="margin-top:-10px"
+                  *ngIf="
+                    authForm.controls.password.hasError('minlength') &&
+                    authForm.controls.password.touched
+                  "
+                >
+                  <p class="alert">* Minimum 8 characters required</p>
+                </div>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="signup-col">
+              <span
+                (click)="forgot()"
+                style="float:right;color:orange !important"
+                >Forgot Password?</span
+              ><br />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="signup-col">
+              <button
+                ion-button
+                [disabled]="!authForm.valid"
+                class="submit-btn"
+                full
+                type="submit"
+              >
+                <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>&nbsp;Login
+              </button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </div>
+    </ion-row>
+  </div>
+</ion-content>
+<!-- <ion-footer style="width:100%;background:transparent;">
+  <ion-item
+    no-lines
+    style="color:#888;margin:0px auto;background:transparent;text-align:center;font-size:14px;"
+  >
+    <label style="text-align:center;margin:0px auto;color:#999 !important"
+      >Don't have an account?
+      <span (click)="signup()" style="color:#efaf74">Sign up</span></label
+    >
+  </ion-item>
+</ion-footer> -->

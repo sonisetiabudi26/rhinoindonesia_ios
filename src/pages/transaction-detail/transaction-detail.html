@@ -1,0 +1,103 @@
+<!--
+  Generated template for the TransactionDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Detail Transaction</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background: #f3f3f3;">
+  <ion-list no-lines>
+    <!-- <span class="sub_title">No transaction. {{transaction}}</span>
+          <hr class="line"> -->
+
+    <ion-row>
+      <ion-item class="lines">
+        <ion-label class="sub_titles" stacked>No transaction.</ion-label>
+        <ion-label class="sub_title">{{ transaction }}</ion-label>
+      </ion-item>
+      <ion-item class="lines">
+        <ion-label class="sub_titles" stacked>Date</ion-label>
+        <ion-label class="sub_title">{{ date_trans }}</ion-label>
+      </ion-item>
+
+      <!-- <ion-item class="lines">
+               <ion-label class="sub_titles" stacked>Qty</ion-label>
+               <ion-label class="sub_title">{{d.qty}}</ion-label>
+             </ion-item> -->
+      <ion-item class="lines">
+        <ion-label class="sub_titles" stacked>Payment Method</ion-label>
+        <ion-label class="sub_title">{{ method_name }}</ion-label>
+      </ion-item>
+      <ion-item class="lines">
+        <ion-label class="sub_titles" stacked>Distributor</ion-label>
+        <ion-label class="sub_title">{{ store_name }}</ion-label>
+      </ion-item>
+      <ion-item class="lines">
+        <ion-label class="sub_titles" stacked>Get Point</ion-label>
+        <ion-label class="sub_title">{{ poin_get | number: fractionSize}}</ion-label>
+      </ion-item>
+      <!-- <ion-item class="lines">
+              <ion-label class="sub_titles" stacked>Total price</ion-label>
+              <ion-label class="sub_title" ></ion-label>
+            </ion-item> -->
+      <!-- <ion-item class="lines">
+              <ion-label class="sub_titles" stacked>Use Point</ion-label>
+              <ion-label class="sub_title" ></ion-label>
+            </ion-item> -->
+      <!-- <ion-item class="lines">
+              <ion-label class="sub_titles" stacked>Total Payment</ion-label>
+              <ion-label class="sub_title" ></ion-label>
+            </ion-item> --> </ion-row
+    ><br />
+    <ion-row>
+      <b>Transaction</b><br />
+      <ion-item class="lines" *ngFor="let item of itemTranscation">
+        <!-- <ion-label class="sub_titles" stacked>Store</ion-label> -->
+
+        <ion-label class="sub_title"
+          ><span text-wrap>{{ item.Product_Name }}</span> x
+          {{ item.Qty | number: fractionSize }}<br />
+        </ion-label>
+        <ion-label *ngIf="item.Final_Price" class="sub_title" item-end
+          >Rp. {{ suma(item.Final_Price, item.Qty) | number: fractionSize
+          }}<br />
+        </ion-label>
+        <ion-label *ngIf="!item.Final_Price" class="sub_title" item-end
+          >Rp. 0<br />
+        </ion-label>
+      </ion-item> </ion-row
+    ><br />
+    <ion-row>
+      <ion-item class="lines">
+        <!-- <ion-label class="sub_titles" stacked>Store</ion-label> -->
+        <ion-label class="sub_title" item-start>Total Transaction</ion-label>
+        <ion-label class="sub_title" item-end
+          >Rp. {{ total_trans | number: fractionSize }}</ion-label
+        >
+      </ion-item> </ion-row
+    ><br />
+    <ion-row>
+      <ion-item class="lines">
+        <!-- <ion-label class="sub_titles" stacked>Store</ion-label> -->
+        <ion-label class="sub_title" item-start>Used Point</ion-label>
+        <ion-label class="sub_title" item-end>
+          {{ poin_spent | number: fractionSize }}</ion-label
+        >
+      </ion-item> </ion-row
+    ><br />
+    <ion-row>
+      <ion-item class="lines">
+        <!-- <ion-label class="sub_titles" stacked>Store</ion-label> -->
+        <ion-label class="sub_title" item-start>Total Payment</ion-label>
+        <ion-label class="sub_title" item-end
+          >Rp. {{ total_pay | number: fractionSize }}</ion-label
+        >
+      </ion-item>
+    </ion-row> </ion-list
+  ><br />
+</ion-content>

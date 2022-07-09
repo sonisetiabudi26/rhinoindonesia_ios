@@ -1,0 +1,180 @@
+<!--
+  Generated template for the BusinessSimulationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Business Simulation</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-item no-lines>
+      <ion-label style="font-weight: bold">Jenis Paket Usaha</ion-label>
+    </ion-item>
+    <ion-item class="dropdown" no-lines>
+      <ion-label>Jenis Paket</ion-label>
+      <ion-select [(ngModel)]="paket" name="paket" [ngModelOptions]="{ standalone: true }"
+        (ionChange)="onChange($event)" style="width: 100%" placeholder="Pilih paket usaha" text-wrap>
+        <div *ngFor="let group of paketAll">
+          <ion-option value="{{ group.Package_Business_ID }}~{{group.Price}}~{{group.Product_Package_ID}}">{{
+            group.Product_Name }}</ion-option>
+        </div>
+      </ion-select>
+    </ion-item>
+  </ion-row>
+
+  <div *ngFor="let att of anArray; let idx = index"
+    style="background-color: #ddd;border-radius: 10px;border:0.7px solid #ccc;margin-top:10px">
+    <button fill="clear" (click)="deleteItem(idx+1)" *ngIf="idx!=0"
+      style="border-radius: 50%;width:30px;height:30px;float: right;">
+      <ion-icon slot="icon-only" style="color:#f00" name="close"></ion-icon>
+    </button>
+    <ion-row style="
+      align-content: center;
+      align-items: center;
+      align-self: center;
+      text-align: center;
+    ">
+      <ion-col col-8>
+        <ion-label style="font-weight: bold">Jenis Bahan & ukuran design</ion-label>
+      </ion-col>
+      <!-- <ion-col col-4>
+        <ion-label style="font-weight: bold">Ukuran Design</ion-label>
+      </ion-col> -->
+      <ion-col col-4>
+        <ion-label style="font-weight: bold">Harga</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="
+      align-content: center;
+      align-items: center;
+      align-self: center;
+      text-align: center;
+    ">
+      <ion-col col-8>
+        <ion-item class="dropdown" no-lines>
+          <ion-select [(ngModel)]="bahan[idx]" name="bahan{{idx+1}}" [ngModelOptions]="{ standalone: true }"
+            style="width: 100%" (ionChange)="onChangeBahan($event,idx+1)" placeholder="Pilih jenis bahan"
+            interface="popover" text-wrap>
+            <div *ngFor="let group of bahanAll">
+              <ion-option
+                value="{{ group.Sub_Category_Id }}~{{group.Name_Sub}}~{{group.Price}}~{{group.Ukuran_Design}}">{{
+                group.Name_Sub }} -
+                {{
+                group.Ukuran_Design }}</ion-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <!-- <ion-col col-4>
+        <ion-item class="dropdown" no-lines>
+          <ion-select [(ngModel)]="detailpaket[idx]" name="detailpaket{{idx+1}}" [ngModelOptions]="{ standalone: true }"
+            style="width: 100%" (ionChange)="onChangePrice($event)" placeholder="Pilih ukuran design"
+            interface="popover" text-wrap>
+            <div *ngFor="let group of material">
+              <ion-option value="{{ group.Detail_Package_ID }}~{{group.Ukuran_Design}}">{{ group.Ukuran_Design }}
+              </ion-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </ion-col> -->
+      <ion-col col-4>
+        <ion-item class="box-price" no-lines>
+          <ion-input type="text" *ngIf="anArray[idx].priceBahan" text-right [(ngModel)]="anArray[idx].priceBahan"
+            readonly>
+          </ion-input>
+          <span type="number" *ngIf="!anArray[idx].priceBahan" name="priceBahan[idx]" readonly>0</span>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row style="
+      align-content: center;
+      align-items: center;
+      align-self: center;
+      text-align: center;
+    ">
+      <ion-col col-8>
+        <ion-label style="font-weight: bold">Media Sablon</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label style="font-weight: bold">Harga</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row style="
+      align-content: center;
+      align-items: center;
+      align-self: center;
+      text-align: center;
+    ">
+      <ion-col col-8>
+        <ion-item class="dropdown" no-lines>
+          <ion-select [(ngModel)]="media[idx]" name="media{{idx+1}}" [ngModelOptions]="{ standalone: true }"
+            style="width: 100%" placeholder="Pilih media sablon" interface="popover" text-wrap
+            (ionChange)="onChangePriceMedia($event,idx+1)">
+            <div *ngFor="let group of mediaPackage">
+              <ion-option value="{{ group.Media_Package_ID }}~{{group.Media_Name}}">{{ group.Media_Name }}</ion-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <ion-item class="box-price" no-lines>
+          <ion-input type="text" *ngIf="anArray[idx].hargaSablon" text-right [(ngModel)]="anArray[idx].hargaSablon"
+            readonly></ion-input>
+          <span type="number" *ngIf="!anArray[idx].hargaSablon" name="mediaPrice[idx]" readonly>0</span>
+          <!-- <span type="number" name="mediaPrice" readonly>{{mediaPrice}}</span> -->
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="
+      align-content: center;
+      align-items: center;
+      align-self: center;
+      text-align: center;
+    ">
+      <ion-col col-8>
+        <ion-label style="font-weight: bold">Harga Jual (/pcs)</ion-label>
+      </ion-col>
+      <ion-col col-4>
+        <ion-label style="font-weight: bold">Jumlah Produksi (/hari)</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row style="
+      align-content: center;
+      align-items: center;
+      align-self: center;
+      text-align: center;
+    ">
+      <ion-col col-8>
+        <ion-item class="box-input" no-lines>
+          <ion-input type="number" [(ngModel)]="anArray[idx].hargaJual" (keyup)="updateList($event,idx+1,'hargajual')"
+            name="hargaJual" placeholder="Number Input with no label">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <ion-item class="box-input" no-lines>
+          <ion-input type="number" [(ngModel)]="anArray[idx].produksi" (keyup)="updateList($event,idx+1,'produksi')"
+            name="produksi" placeholder="Number Input with no label">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-row>
+    <button ion-button style="background-color: #28A745;border-radius: 5px;" (click)="Add()">
+      + Add More
+    </button>
+  </ion-row>
+  <ion-row style="padding-top: 20px">
+    <button ion-button class="submit-btn" (click)="calculate()" color="dark" full>
+      Hitung
+    </button>
+  </ion-row>
+</ion-content>

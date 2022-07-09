@@ -1,0 +1,50 @@
+<!--
+  Generated template for the FilterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Filter</ion-title>
+    <ion-buttons end>
+      <button
+        id="notification-button"
+        ion-button
+        icon-only
+        (click)="closeModal()"
+      >
+        <ion-icon ios="ios-close" md="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content" padding>
+  <ion-row>
+    <ion-item no-lines>
+      <ion-label>Choose City</ion-label>
+      <ion-select [(ngModel)]="selectedvalue">
+        <ion-option *ngFor="let kota of item" value="{{ kota.City_ID }}">{{
+          kota.City_Name
+        }}</ion-option>
+      </ion-select>
+    </ion-item> </ion-row
+  ><br />
+</ion-content>
+<ion-footer>
+  <ion-row>
+    <ion-col class="signup-col">
+      <button
+        full
+        class="submit-btn"
+        color="dark"
+        style="height:50px;"
+        (click)="submit()"
+        ion-button
+      >
+        <ion-icon ios="ios-send" md="md-send"></ion-icon>&nbsp; Submit
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

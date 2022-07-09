@@ -1,0 +1,99 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-clipboard": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-advanced-http": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-androidx": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-camera-preview": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-datepicker": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-email-composer": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-firebasex": {
+      "ANDROID_PLAY_SERVICES_TAGMANAGER_VERSION": "17.0.0",
+      "ANDROID_FIREBASE_CORE_VERSION": "17.0.0",
+      "ANDROID_FIREBASE_MESSAGING_VERSION": "19.0.0",
+      "ANDROID_FIREBASE_CONFIG_VERSION": "18.0.0",
+      "ANDROID_FIREBASE_PERF_VERSION": "18.0.0",
+      "ANDROID_FIREBASE_AUTH_VERSION": "18.0.0",
+      "ANDROID_CRASHLYTICS_VERSION": "2.9.8",
+      "ANDROID_SHORTCUTBADGER_VERSION": "1.1.22",
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27",
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-x-toast": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-youtube-video-player": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-file-opener2": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "cordova-plugin-cocoapod-supportx": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "io.rhino.indonesia"
+    }
+  }
+}

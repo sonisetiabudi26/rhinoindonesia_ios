@@ -1,0 +1,133 @@
+<ion-menu id="myMenu" [content]="content">
+  <ion-content>
+    <ion-row style="padding:10px;width:100%;background:orange">
+      <ion-item style="background:transparent" no-lines>
+        <img
+          src="{{ photo }}"
+          style="height:80px !important;width:80px !important;-webkit-border-radius: 100%;
+          border-radius: 100%;
+          object-fit: cover;
+          float:left;"
+          *ngIf="photo"
+          item-start
+          imageViewer
+        />
+        <img
+          *ngIf="!photo"
+          style="height:80px !important;width:80px !important;-webkit-border-radius: 100%;
+          border-radius: 100%;
+          object-fit: cover;
+          float:left;"
+          src="../assets/imgs/noname.jpg"
+          imageViewer
+          item-start
+        />
+
+        <h2 style="text-align:left;color:#fff">
+          <b>{{ name }}</b>
+        </h2>
+        <span style="font-size:13px;color:#fff"
+          >Total Poin : {{ poin | number: fractionSize }}</span
+        >
+        <hr class="line" />
+        <span
+          style="font-size:13px;color:#fff"
+          menuClose
+          (click)="detailPersonal()"
+          >Show Profile</span
+        >
+      </ion-item>
+    </ion-row>
+    <ion-list style="margin:0;">
+      <button
+        style="background: transparent;color: #2b529d;"
+        menuClose
+        ion-item
+        no-lines
+        *ngFor="let p of pagefirst"
+        (click)="openPage(p)"
+      >
+        <img
+          src="../assets/imgs/{{ p.icon }}"
+          style="width:30px;height:30px"
+          item-left
+        />
+
+        &nbsp;
+        {{ p.title }}
+      </button>
+    </ion-list>
+    <ion-list style="margin:0px;padding:0px">
+      <div no-lines *ngFor="let p of item">
+        <ion-item
+          style="background: transparent;color: #2b529d;"
+          ion-item
+          no-lines
+          (click)="toggleGroup(i, p.Category_Pro_ID)"
+          [ngClass]="{ active: isGroupShown(i) }"
+        >
+          <img
+            src="http://rhinoindonesia.co.id/rhino_cashier/api_rhino/category_images/{{
+              p.Image_Category
+            }}"
+            style="width:30px;"
+            item-left
+          />&nbsp;
+          <span>{{ p.Category_Name }}</span>
+          <ion-icon
+            color="success"
+            style="margin-top: 15px;font-size: 2rem;"
+            item-end
+            [name]="
+              p.Category_Pro_ID == showSubmenu
+                ? 'arrow-dropdown'
+                : 'arrow-dropright'
+            "
+          ></ion-icon>
+        </ion-item>
+
+        <ion-item-group
+          class="submenu"
+          *ngIf="isGroupShown(i) && showSubmenu == p.Category_Pro_ID"
+        >
+          <div *ngFor="let p of itemSub">
+            <ion-item
+              submenu-item
+              no-lines
+              style="color: #2b529d;"
+              menuClose
+              (click)="Detail(p.Sub_Category_ID, p.Name_Sub)"
+              >{{ p.Name_Sub }}</ion-item
+            >
+          </div>
+        </ion-item-group>
+      </div>
+    </ion-list>
+    <ion-list style="margin:0;">
+      <button
+        style="background: transparent;color: #2b529d;"
+        menuClose
+        ion-item
+        no-lines
+        *ngFor="let p of pages"
+        (click)="openPage(p)"
+      >
+        <img
+          src="../assets/imgs/{{ p.icon }}"
+          style="width:30px;height:30px"
+          item-left
+        />
+        <!-- <ion-icon
+          *ngIf="p.icon == 'ribbon'"
+          style="color: #2b529d"
+          item-left
+          name="ribbon"
+        ></ion-icon 
+        >-->
+        &nbsp;
+        {{ p.title }}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,30 @@
+page-modal-notif {
+  .close {
+    position: absolute;
+    float: right;
+    margin-top: -10px;
+    z-index: 999999999999 !important;
+    right: 0;
+  }
+  .modal-order {
+    top: 15% !important;
+    margin: 0px auto;
+    width: 90%;
+    left: 5%;
+    overflow: hidden;
+    border-radius: 10px;
+    background: transparent;
+  }
+  button {
+    height: 30px !important;
+  }
+  .title-product {
+    font-size: 10px;
+  }
+  ion-modal ion-backdrop {
+    visibility: visible;
+  }
+  .scroll-content {
+    overflow: hidden !important;
+  }
+}

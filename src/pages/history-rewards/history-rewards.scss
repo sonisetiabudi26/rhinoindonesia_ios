@@ -1,0 +1,26 @@
+page-history-rewards {
+  .contentback {
+    background: url("../../assets/imgs/promo.png") no-repeat center center fixed;
+    background-size: cover;
+    position: fixed !important;
+  }
+  .container {
+    width: 100% !important;
+    margin-top: 80px;
+    background: transparent;
+    padding: 25px;
+    overflow: auto !important;
+  }
+
+  #notification-button {
+    color: #2b529d;
+  }
+
+  h3 {
+    color: #fff;
+  }
+  .radius-border {
+    margin-bottom: 5px;
+    
+  }
+}

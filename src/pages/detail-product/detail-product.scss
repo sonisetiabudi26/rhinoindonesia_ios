@@ -1,0 +1,27 @@
+page-detail-product {
+  .tab_product {
+    border-radius: 10px;
+    background: #f3f3f3;
+    border: none;
+    // height: 130px;
+  }
+  .tab_title {
+    border-radius: 10px;
+    background: #2b529d;
+    color: #fff;
+    height: auto;
+    width: 98%;
+    z-index: 88;
+    padding-right: 5px;
+    vertical-align: middle;
+  }
+  .tab_code {
+    background: orange;
+    color: #fff;
+    height: 20px;
+    font-size: 10px;
+    float: right;
+    vertical-align: middle;
+    margin-top: -7px;
+  }
+}

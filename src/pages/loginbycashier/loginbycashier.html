@@ -1,0 +1,81 @@
+<ion-content class="login-content">
+  <ion-row class="logo-row">
+    <ion-col>
+      <ion-buttons end>
+        <button
+          id="notification-button"
+          style="background:#2b529d;color:orange !important"
+          ion-button
+          icon-only
+          (click)="closeModal()"
+        >
+          <ion-icon
+            style="color:orange"
+            ios="ios-close"
+            md="md-close"
+          ></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col col-12 style="min-height:250px;"> </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="container">
+    <ion-row class="tabrow">
+      <div class="login-box">
+        <ion-row style="text-align:center;margin:0px auto;"
+          ><h3 style="text-align:center;margin:0px auto;">
+            Input Your Token Number
+          </h3></ion-row
+        >
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+          <ion-row>
+            <ion-col>
+              <ion-list inset>
+                <ion-item
+                  no-lines
+                  [ngClass]="{
+                    'error-border':
+                      !authForm.controls.emailCust.valid &&
+                      authForm.controls.emailCust.touched
+                  }"
+                >
+                  <ion-input
+                    type="text"
+                    formControlName="emailCust"
+                    [(ngModel)]="email"
+                    placeholder="Input Your Member Token"
+                    name="email"
+                    required
+                  ></ion-input>
+                </ion-item>
+                <div
+                  style="margin-top:-20px"
+                  *ngIf="
+                    authForm.controls.emailCust.hasError('required') &&
+                    authForm.controls.emailCust.touched
+                  "
+                >
+                  <p class="alert">* Member Token required</p>
+                </div>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row style="padding-top:25px;">
+            <ion-col class="signup-col">
+              <button
+                ion-button
+                [disabled]="!authForm.valid"
+                class="submit-btn"
+                full
+                type="submit"
+              >
+                <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>&nbsp;Next
+              </button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </div>
+    </ion-row>
+  </div>
+</ion-content>

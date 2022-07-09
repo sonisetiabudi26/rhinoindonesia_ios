@@ -1,0 +1,39 @@
+page-referal {
+  .contentback {
+    background: url("../../assets/imgs/layout2.png") no-repeat center center
+      fixed;
+    background-size: cover;
+    position: fixed !important;
+    height: 100%;
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+  .container {
+    width: 100% !important;
+
+    background: transparent;
+    padding: 25px;
+  }
+  .tabrow {
+    background: #2b529d;
+    width: 100% !important;
+    min-height: 430px;
+    margin: 0px auto;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 50px;
+  }
+
+  #notification-button {
+    color: #2b529d;
+  }
+  .toolbar-background-ios,
+  .toolbar-background-md {
+    background: orange !important;
+    border: none !important;
+  }
+  .scroll-content {
+    // overflow: hidden !important;
+  }
+}

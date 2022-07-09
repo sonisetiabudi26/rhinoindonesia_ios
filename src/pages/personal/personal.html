@@ -1,0 +1,89 @@
+<!--
+  Generated template for the PersonalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Account</ion-title>
+    <!-- <ion-buttons end>
+      <button
+        id="notification-button"
+        ion-button
+        icon-only
+        (click)="editProfile()"
+      >
+        <ion-icon ios="ios-options" md="md-options"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="contentback">
+  <ion-refresher (ionRefresh)="forceReload($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!-- <ion-row class="header-personal3"  > -->
+
+  <ion-row
+    style="text-align:center;position: absolute;;width:100%;padding-top:35%;"
+  >
+    <ion-col col-2></ion-col>
+    <ion-col col-8>
+      <div style="margin:0px auto;text-align:center;">
+        <img class="radius-pic" src="{{ photos }}" *ngIf="photos" imageViewer />
+        <img
+          class="radius-pic"
+          *ngIf="!photos"
+          src="assets/imgs/noname.jpg"
+          imageViewer
+        /><br />
+      </div>
+      <ion-item no-lines style="background:transparent">
+        <ion-row>
+          <h2 style="text-align:center;margin:0 auto;color:#2b529d">
+            <b>{{ customer_name }}</b>
+          </h2>
+        </ion-row>
+      </ion-item>
+    </ion-col>
+    <ion-col col-2></ion-col>
+  </ion-row>
+  <div class="container">
+    <ion-row class="tabrow">
+      <ion-item class="element" (click)="historypoin();">
+        <span item-start class="sub-title">Your Point</span><small style="margin:0px auto;animation: blink 1s linear infinite;" class="animated tada delay-1s">Click me !</small>
+        <span item-end class="sub-title">{{
+          point | number: fractionSize
+        }}</span> </ion-item
+      ><br />
+      <ion-item class="element">
+        <span item-start class="sub-title">Your Profile</span>
+        <span item-end class="sub-title" (click)="editProfile()">Edit</span>
+      </ion-item>
+      <button
+        ion-button
+        class="submit-btn"
+        full
+        color="danger"
+        style="background:#fff;border:1px solid orange;border-radius:50px;color:orange"
+        (click)="logoutaction()"
+      >
+        <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon>&nbsp;<label
+          >Logout</label
+        >
+      </button>
+    </ion-row>
+  </div>
+</ion-content>

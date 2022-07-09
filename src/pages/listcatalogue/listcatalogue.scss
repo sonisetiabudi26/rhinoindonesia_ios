@@ -1,0 +1,42 @@
+page-listcatalogue {
+  .box-menu {
+    border: 0.7px solid #2f0c89;
+    height: 100px;
+    width: 100%;
+    padding-top: 15px;
+    border-radius: 5px;
+    color: #2f0c89;
+    text-align: center;
+  }
+  .login-content {
+    background: #fff;
+  }
+  .logo-row {
+    padding-top: 0px;
+  }
+  .radius-border {
+    border-radius: 10px;
+    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+  }
+  ion-row {
+    align-items: center;
+    text-align: center;
+  }
+  .title {
+    background: transparent;
+    font-size: 12px;
+    align-items: center;
+    text-align: center;
+    color: orange;
+  }
+  .box {
+    height: 150px;
+    border-radius: 10px;
+    -webkit-border-radius: 5px;
+    border: 0.6px solid #f3f3f3;
+    text-align: center;
+    background: #fff;
+    color: orange;
+    box-shadow: 2px 3px rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+  }
+}

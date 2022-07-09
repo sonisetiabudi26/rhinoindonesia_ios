@@ -1,0 +1,38 @@
+<!--
+  Generated template for the AboutusPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <ion-title>Detail News</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-row *ngFor="let item of news">
+    <img src="http://rhinoindonesia.co.id/rhino_cashier/api_rhino/news/{{item.image_news2}}" width="100%"/>
+    <img src="http://rhinoindonesia.co.id/rhino_cashier/api_rhino/news/{{item.image_news3}}" width="100%"/>
+    <img src="http://rhinoindonesia.co.id/rhino_cashier/api_rhino/news/{{item.image_news4}}" width="100%"/>
+    <img src="http://rhinoindonesia.co.id/rhino_cashier/api_rhino/news/{{item.image_news5}}" width="100%"/>
+    <img src="http://rhinoindonesia.co.id/rhino_cashier/api_rhino/news/{{item.image_news6}}" width="100%"/>
+
+        <!-- <div innerHtml="{{
+        item.image_news2
+      }}" style="width:100% !important;height:100% !important" ></div><br />
+        <div innerHtml="{{
+        item.image_news3
+      }}" style="width:100% !important;height:100% !important" ></div><br />
+        <div innerHtml="{{
+      item.image_news4
+    }}" style="width:100% !important;height:100% !important" ></div><br />
+        <div innerHtml="{{
+    item.image_news5
+  }}" style="width:100% !important;height:100% !important" ></div><br />
+        <div innerHtml="{{
+  item.image_news6
+}}" style="width:100% !important;height:100% !important" ></div><br /> -->
+        <!-- <h3>{{ item.Title }}</h3>
+    <div text-wrap innerHtml="{{ getText(item.Text_News) }}" ></div> -->
+    </ion-row>
+</ion-content>

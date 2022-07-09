@@ -1,0 +1,175 @@
+// http://ionicframework.com/docs/theming/
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+@font-face {
+  font-family: "playlist-script";
+  src: url("../assets/font/ps.otf");
+}
+.card-content {
+  position: absolute;
+  z-index: 999999;
+  min-height: 500px;
+  border-radius: 10px;
+}
+.sub-title {
+  color: #999;
+}
+.footer {
+  border: none !important;
+}
+hr.line {
+  border: 0;
+  height: 0.5px;
+  background: #fff;
+  z-index: 999999;
+}
+.tabrow {
+  width: 100%;
+  // padding: 10px;
+  // border-bottom:0.7px solid #999;
+}
+.toolbar-ios ion-title {
+  padding: 0;
+}
+.submit-btn {
+  background: orange;
+  border-radius: 5px !important;
+  height: 50px;
+  //border: 1px solid #ffffff;
+}
+.submit-btn-signup {
+  background: #fff;
+  color: orange !important;
+
+  border-radius: 5px !important;
+  height: 50px;
+  border: 1px solid orange;
+}
+.header-card {
+  border-bottom: 0.7px solid #ddd;
+  color: #fff;
+}
+.point {
+  padding: 10px;
+  background: #f3f3f3;
+}
+.submenu {
+  padding-left: 45px;
+  color: #2b529d;
+}
+ion-item-group[sidemenu] {
+  overflow: hidden;
+  display: block;
+  height: 0;
+  transition: height 0.3s linear;
+  &.visible {
+    height: 300px;
+    // this is just sample value, calculate how much space you need for your menu items
+  }
+}
+.myModal {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: Black;
+  position: absolute !important;
+  width: 100% !important;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2),
+    0 10px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.border-image {
+  display: inline-block;
+  margin: 0 2px 5px;
+  padding: 1px;
+}
+.border-image > img {
+  box-shadow: 3px 2px 3px #000;
+}
+.pins {
+  column-count: 2;
+  border: none;
+}
+.radius-border {
+  border-radius: 5px;
+}
+.contents {
+  background: #fff;
+}
+.radius-pic {
+  // height:150px;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  // padding:10px;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  margin: 0px auto;
+}
+.list-ios,
+.list-md {
+  //margin:5px;
+}
+
+.header-md::after,
+.tabs-md[tabsPlacement="top"] > .tabbar::after,
+.footer-md::before,
+.tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+  background-image: none !important;
+  border: none !important;
+}
+.toolbar-background-ios,
+.toolbar-background-md {
+  background: orange !important;
+  border: none !important;
+}
+$popover-md-width: 520px;
+$popover-ios-width: 520px;
+
+.toolbar-title-md,
+.toolbar-title-ios {
+  color: #fff;
+}
+.back-button {
+  color: #fff;
+}
+.bar-buttons,
+.bar-button {
+  color: #fff;
+}
+.tab-button-text {
+  font-size: 0.7em;
+}
+.tab-button-text {
+  color: #2b529d !important;
+}
+.tab-button-icon {
+  color: #2b529d !important;
+}
+.tab-button[aria-selected="true"] .tab-button-icon {
+  color: orange !important;
+}
+.tab-button[aria-selected="true"] .tab-button-text {
+  color: orange !important;
+}
+.has-refresher > .scroll-content {
+  border-top: none;
+}
+.scroll-content {
+  overflow: auto;
+}
+
+.submit-btn,
+.submit-btn-signup {
+  border-radius: 50px !important;
+}

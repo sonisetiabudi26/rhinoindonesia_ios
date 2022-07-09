@@ -1,0 +1,168 @@
+page-editprofile {
+  .circle-pic {
+    width: 300px;
+    height: 300px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    padding: 10px;
+  }
+  .radius-pic {
+    // height:150px;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    // padding:10px;
+    height: 100px;
+    text-align: center;
+    width: 100px;
+    object-fit: cover;
+    margin: 0px auto;
+    z-index: 9999999999;
+    border: 1px solid #999;
+  }
+  .small {
+    text-align: center;
+    margin: 0px auto;
+  }
+  .radius-pic > img {
+    width: 100%;
+  }
+  ion-select{
+    width:100% !important;
+    max-width:100% !important;
+    padding: 0px;
+  }
+  .header-personal {
+    margin: 0px auto;
+  }
+  .header-personal2 {
+    background: #222;
+    height: 50px;
+    padding: 5px;
+  }
+  p {
+    font-size: 1px;
+    color: #000;
+    text-align: center !important;
+  }
+  .header-personal3 {
+    background: #222;
+    height: auto;
+    padding: 5px;
+  }
+  .row-title {
+    display: inline-block;
+    padding: 30px 0px 0px 0px !important;
+    margin: 0px !important;
+  }
+  .row-title2 {
+    display: inline-block;
+    padding-top: 45px;
+  }
+  .row_title {
+    padding: 0px;
+    margin: 0px;
+    line-height: 10%;
+    // font-size: 10px;
+  }
+  .sub_title > span {
+    font-weight: lighter;
+    font-size: 13px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre;
+    color: #888 !important;
+  }
+  .thumbnail-right > h1 {
+    // border-right:0.7px solid #999;
+    // padding-right: 10px;
+    padding-top: 25%;
+    padding-left: 25%;
+  }
+  .row-pic {
+    display: inline-block;
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+  .sub-detail {
+    text-align: center;
+    margin: 0px auto;
+    font-size: 12px;
+  }
+  .text-sub {
+    padding-top: 5px;
+  }
+  .text-sub > label {
+    font-size: 12px;
+    // text-align: center;
+    // margin:0px auto;
+  }
+  .icon-call {
+    font-size: 24px;
+  }
+
+  .v1 {
+    border-left: 0.7px solid #999;
+    height: 30px;
+    margin: 0px auto;
+    text-align: center;
+  }
+  .contentback {
+    background: url("../../assets/imgs/layout5.png") no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100% !important;
+    padding: 0;
+  }
+  .container {
+    width: 100% !important;
+    background: transparent;
+    padding: 0px 25px 25px 25px;
+    overflow: auto;
+    height: 60%;
+  }
+  ion-item {
+    border-radius: 50px !important;
+    padding-left: 30px !important;
+    font-size: 0.9em;
+    width: 100%;
+    border: 0.7px solid orange !important;
+
+    box-shadow: none !important;
+  }
+  #myInput {
+    width: 100%;
+    height: 100px;
+    border-radius: 5px !important;
+    // padding: 0px 10px 0px 9px !important;
+  }
+
+  .tabrow {
+    background: #2b529d;
+    width: 100% !important;
+    min-height: 240px;
+    margin: 0px auto;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  .element {
+    background: orange;
+    border-radius: 50px;
+    height: 40px;
+  }
+  #notification-button {
+    color: #2b529d;
+  }
+  .toolbar-background-ios,
+  .toolbar-background-md {
+    background: transparent !important;
+    border: none !important;
+  }
+  .scroll-content {
+    overflow: hidden !important;
+    height: 100% !important;
+  }
+  .sub-title {
+    color: #fff;
+  }
+}

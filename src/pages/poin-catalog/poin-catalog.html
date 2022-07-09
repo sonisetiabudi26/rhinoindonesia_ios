@@ -1,0 +1,69 @@
+<!--
+  Generated template for the PoinCatalogPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Catalog</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="forceReload($event)">
+    <ion-refresher-content style="color:#fff" refreshingText="Refresh Data">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!-- <div *ngFor="let catalog of catalogs | async">
+      <ion-row style="padding:0px">
+        <ion-col col-6 style="padding:0px">
+          <ion-card style="padding:0px">
+            <img src="http://captainbarbershop.co.id/internal_cashier/product_images/{{catalog.img}}" style="width:100%;object-fit: cover;">
+            <ion-card-content>
+                <span>{{catalog.product_name}}</span>
+              <p>
+                <ion-icon ios="ios-ribbon" md="md-ribbon"></ion-icon> 200
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div> -->
+
+  <ion-row style="width:100%;z-index:99999;">
+    <!-- <ion-card class="radius-border"> -->
+    <ion-row class="tabrow">
+      <ion-col col-4 *ngFor="let catalog of (catalogs | async)">
+        <ion-row
+          *ngIf="catalog.product_name"
+          style="height:200px;background:#222;padding:10px;"
+        >
+          <ion-col col-12 style="padding:0;text-align:center;">
+            <img
+              src="http://rhinoindonesia.co.id/rhino_cashier/product_images/{{
+                catalog.img
+              }}"
+              style="height:100px;width:100%;object-fit: cover;"
+            />
+            <!-- <ion-card-content> -->
+            <div style="height:30px;">
+              <span
+                style="font-size:10px;text-align:center !important;margin:0px auto;"
+                >{{ catalog.product_name }}</span
+              >
+            </div>
+            <p style="border-top:0.7px solid #777;padding-top:5px;">
+              <ion-icon ios="ios-ribbon" md="md-ribbon"></ion-icon
+              >{{ catalog.price }}
+            </p>
+            <!-- <p style="font-size:10px;">{{product.description}}</p> -->
+            <!-- </ion-card-content> -->
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <!-- </ion-card> --> </ion-row
+  ><br />
+</ion-content>

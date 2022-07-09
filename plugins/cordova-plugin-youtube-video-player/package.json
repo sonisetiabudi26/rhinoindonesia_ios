@@ -1,0 +1,45 @@
+{
+  "_from": "cordova-plugin-youtube-video-player",
+  "_id": "cordova-plugin-youtube-video-player@2.3.0",
+  "_inBundle": false,
+  "_integrity": "sha512-vVTi5F3mdfqE1+vXX4bsa8r5fu/kHx8mFs5FSHlm/nbptRzWxCSpyN04sl4KMPBGYyPajEU8LT7Kt+fGJD71bg==",
+  "_location": "/cordova-plugin-youtube-video-player",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-youtube-video-player",
+    "name": "cordova-plugin-youtube-video-player",
+    "escapedName": "cordova-plugin-youtube-video-player",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-youtube-video-player/-/cordova-plugin-youtube-video-player-2.3.0.tgz",
+  "_shasum": "cf773c9b9ffc89b97c40efa95c170c458dcf8ca0",
+  "_spec": "cordova-plugin-youtube-video-player",
+  "_where": "/Users/sonisetiabudi/Documents/kerjaan/data_apps/Rhino",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/ihadeed/CordovaYoutubeVideoPlayer/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "**Play Youtube Videos in a native Video Player on Android &amp; iOS.**",
+  "homepage": "https://github.com/ihadeed/CordovaYoutubeVideoPlayer#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "name": "cordova-plugin-youtube-video-player",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihadeed/CordovaYoutubeVideoPlayer.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "2.3.0"
+}

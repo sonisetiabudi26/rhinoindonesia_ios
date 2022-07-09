@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1059119309763",
+    "firebase_url": "https://rhino-indonesia.firebaseio.com",
+    "project_id": "rhino-indonesia",
+    "storage_bucket": "rhino-indonesia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059119309763:android:4c3fd2093e197dfb",
+        "android_client_info": {
+          "package_name": "io.rhino.indonesia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059119309763-k6ocf1ohhi4qdov82k34uin71nogit8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmWY9nbTFhNxnAG1T3ioTb9W6Z1NGoyao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059119309763-k6ocf1ohhi4qdov82k34uin71nogit8h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1059119309763-aotmpmj73s6rtt0obrhhpcffg24ud354.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.rhino.indonesia",
+                "app_store_id": "1502885101"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

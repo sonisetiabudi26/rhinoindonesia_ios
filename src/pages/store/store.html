@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> </ion-title>
+    <ion-buttons end>
+      <!-- <button ion-button icon-only (click)="presentPopover()">
+        <ion-icon ios="ios-options" md="md-options"></ion-icon>
+      </button> -->
+      <button id="notification-button" ion-button icon-only (click)="notif()">
+        <ion-icon ios="ios-mail" md="md-mail"
+          ><ion-badge
+            *ngIf="notification"
+            id="notifications-badge"
+            color="danger"
+            ><div></div></ion-badge
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="contentback">
+  <!-- <ion-refresher (ionRefresh)="forceReload($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
+  </ion-refresher> -->
+  <!-- <ion-refresher (ionRefresh)="forceReload($event)">
+    <ion-refresher-content style="color:#fff" refreshingText="Refresh Data">
+    </ion-refresher-content>
+  </ion-refresher> -->
+  <ion-row style="width:100%;position: fixed;z-index:-999999;margin-top:-50px">
+    <ion-col col-12 style="margin:0 auto;text-align:center">
+      <img src="/assets/imgs/logo_top.png" style="width:50%;padding:40px" />
+    </ion-col>
+  </ion-row>
+  <div class="container">
+    <div class="tabrow" *ngIf="msg != 'empty'" padding>
+      <div *ngFor="let location of data">
+        <ion-item
+          no-lines
+          class="radius-border"
+          (click)="detail(location.Dist_ID)"
+        >
+          <img
+            src="http://rhinoindonesia.co.id/rhino_cashier/distributor_images/{{
+              location.Location_image
+            }}"
+            item-start
+            style="width:70px;"
+            large
+          />
+          <h2>{{ location.Dist_Name }}</h2>
+          <span>{{ location.City_Name }}</span>
+          <!-- <p>{{ location.Phone_Number }}</p> -->
+          <p>
+            <ion-icon name="navigate"></ion-icon> Distance
+            {{ location.jarak }} KM
+          </p>
+          <button ion-button clear item-end>
+            <ion-icon
+              ios="ios-arrow-dropright"
+              md="md-arrow-dropright"
+            ></ion-icon>
+          </button>
+        </ion-item>
+      </div>
+    </div>
+    <ion-item no-lines *ngIf="msg == 'empty'" class="tabrow">
+      <ion-row style="text-align:center;margin:0px auto;">
+        <img
+          src="/assets/imgs/no_data_rhino.png"
+          style="width:30%;height:30%;text-align:center;margin:0px auto;left:50;top:50"
+        /><br />
+      </ion-row>
+      <ion-row style="text-align:center;margin:0px auto;left:50;top:50"
+        ><h4
+          style="color:#fff;text-align:center;margin:0px auto;left:50;top:50"
+        >
+          No data result
+        </h4></ion-row
+      >
+    </ion-item>
+  </div>
+</ion-content>

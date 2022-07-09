@@ -1,0 +1,63 @@
+page-pralogin {
+  h1,
+  label {
+    color: #fff !important;
+  }
+  .login-content {
+    background: url("../../assets/imgs/Background.jpg") no-repeat center center;
+    background-size: cover;
+    .logo-row {
+      padding-top: 30px;
+      padding-bottom: 20px;
+    }
+
+    .login-box {
+      // border: 0.7px solid #333;
+      padding: 30px 20px 0px 20px;
+      // margin-top: 30px;
+      border-radius: 5px !important;
+    }
+    .alert {
+      color: #f00;
+      float: left;
+      font-size: 12px;
+    }
+    ion-row {
+      align-items: center;
+      text-align: center;
+    }
+    ion-input {
+      //border:none !important;
+      color: #000;
+    }
+    ion-item {
+      border-radius: 5px !important;
+      padding-left: 30px !important;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      background-color: #fff !important;
+      border: 1px solid #ddd !important;
+      //border:none !important;
+
+      // box-shadow: none !important;
+    }
+
+    .signup-col {
+      margin: 0px 16px 0px 16px;
+    }
+
+    // .item-inner {
+    //   border-bottom-color: #ffffff !important;
+    //   box-shadow: none !important;
+    // }
+
+    label {
+      color: #999;
+    }
+
+    .register-btn {
+      color: #ffffff;
+      font-size: 0.8em;
+    }
+  }
+}

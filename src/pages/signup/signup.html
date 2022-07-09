@@ -1,0 +1,222 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content class="login-content">
+  <ion-row class="logo-row">
+    <ion-col>
+      <ion-buttons end>
+        <button id="notification-button" style="background:#2b529d;color:#2b529d !important" ion-button icon-only
+          (click)="closeModal()">
+          <ion-icon style="color:orange" ios="ios-close" md="md-close"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+  <div style="min-height:200px;overflow:hidden !important;margin:0px auto;text-align: center">
+    <img src="assets/imgs/logo_top.png" style=" object-fit: cover;height:200px;padding-top:20px;" />
+  </div>
+  <div class="container">
+    <ion-list>
+      <ion-row class="tabrow" *ngIf="msg != 'empty'">
+        <div class="login-box">
+          <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+            <ion-row>
+              <ion-col>
+                <ion-list inset>
+                  <ion-item no-lines [ngClass]="{
+                      'error-border':
+                        !authForm.controls.namaCustumer.valid &&
+                        authForm.controls.namaCustumer.touched
+                    }">
+                    <ion-input type="text" formControlName="namaCustumer" [(ngModel)]="nama" placeholder="Nama"
+                      name="nama" required></ion-input>
+                  </ion-item>
+                  <div style="margin-top:-5px" *ngIf="
+                      authForm.controls.namaCustumer.hasError('required') &&
+                      authForm.controls.namaCustumer.touched
+                    ">
+                    <p class="alert">* Nama required</p>
+                  </div>
+                  <br />
+                  <ion-item no-lines [ngClass]="{
+                      'error-border':
+                        !authForm.controls.emailCust.valid &&
+                        authForm.controls.emailCust.touched
+                    }">
+                    <ion-input type="text" formControlName="emailCust" [(ngModel)]="email" placeholder="Email"
+                      name="email" required></ion-input>
+                  </ion-item>
+                  <div style="margin-top:-5px" *ngIf="
+                      authForm.controls.emailCust.hasError('pattern') &&
+                      authForm.controls.emailCust.touched
+                    ">
+                    <p class="alert">* Email required</p>
+                  </div>
+                  <div style="margin-top:-5px" *ngIf="
+                      authForm.controls.emailCust.hasError('required') &&
+                      authForm.controls.emailCust.touched
+                    ">
+                    <p class="alert">* Invalid email address</p>
+                  </div>
+                  <br />
+                  <ion-item no-lines [ngClass]="{
+                      'error-border':
+                        !authForm.controls.passwordCust.valid &&
+                        authForm.controls.passwordCust.touched
+                    }">
+                    <ion-input type="password" formControlName="passwordCust" [(ngModel)]="password"
+                      placeholder="Password" name="password" required></ion-input>
+                  </ion-item>
+                  <div style="margin-top:-5px" *ngIf="
+                      authForm.controls.passwordCust.hasError('required') &&
+                      authForm.controls.passwordCust.touched
+                    ">
+                    <p class="alert">* Password required</p>
+                  </div>
+                  <br />
+                  <ion-item no-lines>
+                    <ion-input type="tel" formControlName="No_telp" [(ngModel)]="no_telp" placeholder="No Telp"
+                      name="no_telp" required></ion-input>
+                  </ion-item>
+                  <div style="margin-top:-5px" *ngIf="
+                      authForm.controls.No_telp.hasError('required') &&
+                      authForm.controls.No_telp.touched
+                    ">
+                    <p class="alert">* No Telp required</p>
+                  </div>
+                  <br />
+
+                  <ion-item no-lines>
+                    <ion-input type="text" [(ngModel)]="reff_code" [ngModelOptions]="{ standalone: true }"
+                      placeholder="Referral Code (Optional)" name="reff_code"></ion-input>
+                  </ion-item>
+                  <br />
+                  <ion-item no-lines>
+                    <!--<ion-input type="text" formControlName="tgl_lahir" [(ngModel)]="tgl_lahir"  placeholder="Birth Date (yyyy-mm-dd)" name="tgl_lahir" required></ion-input> -->
+                    <ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="tgl_lahir"
+                      [ngModelOptions]="{ standalone: true }" placeholder="Birth Date" name="tgl_lahir"></ion-datetime>
+                  </ion-item>
+                  <br />
+                  <ion-item no-lines style="border-radius:10px !important;z-index:999">
+                    <!-- <ion-input type="text" formControlName="addressCust" [(ngModel)]="addressCust"  placeholder="Address" name="address" required></ion-input> -->
+                    <ion-input #myInput id="myInput" maxLength="500" [ngModelOptions]="{ standalone: true }"
+                      placeholder="Address" minlength="1" name="addressCust" round type="notes"
+                      [(ngModel)]="addressCust"></ion-input>
+                  </ion-item>
+                  <!-- <div style="margin-top:-5px">
+                    <p class="alert">* Address required</p>
+                  </div> -->
+                  <br />
+                  <ion-input type="text" style="display:none" [(ngModel)]="type" [ngModelOptions]="{ standalone: true }"
+                    name="type"></ion-input>
+                  <ion-item no-lines>
+                    <ion-select name="provinsi" [(ngModel)]="provinsi" [ngModelOptions]="{ standalone: true }"
+                      (ionChange)="onChange($event)" style="width: 100%;">
+                      <ion-option value="">Pilih nama provinsi</ion-option>
+                      <div *ngFor="let group of provAll">
+                        <ion-option value="{{ group.provinsi_id }}">{{
+                          group.nama_provinsi
+                          }}</ion-option>
+                      </div>
+                    </ion-select>
+                  </ion-item>
+                  <!-- <div style="margin-top:-5px" >
+                    <p class="alert">* Provinsi required</p>
+                  </div> -->
+                  <br />
+                  <ion-item *ngIf="address_status" no-lines>
+                    <ion-select name="kota" [ngModelOptions]="{ standalone: true }" [(ngModel)]="kota"
+                      (ionChange)="onChangeKota($event)" style="width: 100%;">
+                      <ion-option value="">Pilih nama kota</ion-option>
+                      <div *ngFor="let group of kotaAll">
+                        <ion-option value="{{ group.kota_id }}">{{
+                          group.nama_kota
+                          }}</ion-option>
+                      </div>
+                    </ion-select>
+                  </ion-item>
+                  <!-- <div style="margin-top:-5px" *ngIf="
+                    authForm.controls.kotaCust.hasError('required') &&
+                    authForm.controls.kotaCust.touched
+                  ">
+                    <p class="alert">* Kota required</p>
+                  </div> -->
+                  <br *ngIf="address_status" />
+                  <ion-item *ngIf="address_status_kota" no-lines>
+                    <ion-select name="kecamatan" [ngModelOptions]="{ standalone: true }" [(ngModel)]="kecamatan"
+                      (ionChange)="onChangeKecamatan($event)" style="width: 100%;">
+                      <ion-option value="">Pilih nama kecamatan</ion-option>
+                      <div *ngFor="let group of kecamatanAll">
+                        <ion-option value="{{ group.kecamatan_id }}">{{
+                          group.nama_kecamatan
+                          }}</ion-option>
+                      </div>
+                    </ion-select>
+                  </ion-item>
+                  <!-- <div style="margin-top:-5px" *ngIf="
+                    authForm.controls.kecamatanCust.hasError('required') &&
+                    authForm.controls.kecamatanCust.touched
+                  ">
+                    <p class="alert">* Kecamatan required</p>
+                  </div> -->
+                  <br *ngIf="address_status_kota" />
+                  <!-- <ion-item *ngIf="address_status_kota" no-lines color="dark" [ngClass]="{
+                                'error-border':
+                                  !authForm.controls.kodeposCust.valid &&
+                      authForm.controls.kodeposCust.touched
+                              }">
+                  <ion-select name="kodepos" formControlName="kodeposCust" [(ngModel)]="kodepos" style="width:100%">
+                    <ion-option value="">Pilih Kodepos</ion-option>
+                    <div *ngFor="let group of kodeposAll">
+                      <ion-option value="{{ group.kode_pos }}">{{
+                                    group.kode_pos
+                                  }}</ion-option>
+                    </div>
+                  </ion-select>
+                </ion-item>
+                <div style="margin-top:-5px" *ngIf="
+                               authForm.controls.kodeposCust.hasError('required') &&
+                    authForm.controls.kodeposCust.touched
+                              ">
+                  <p class="alert">* Kodepos required</p>
+                </div> -->
+                  <ion-item no-lines>
+                    <ion-input type="number" [(ngModel)]="kodepos" placeholder="Kodepos" name="kodepos"
+                      [ngModelOptions]="{ standalone: true }" style="width: 100%;">{{kodepos}}</ion-input>
+                  </ion-item>
+                  <!-- <div style="margin-top:-5px">
+                    <p class="alert">* Kodepos required</p>
+                  </div> -->
+                  <br>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+            <br />
+
+            <!-- <ion-row style="float:right">
+       <span style="color:#488aff" (click)="forgotPassword()">Forgot password?</span>
+     </ion-row>
+     <br/><br/> -->
+            <!--<button ion-button full color="primary" [disabled]="!authForm.valid" style="margin-top: 20px;" type="submit">Authorize</button>  -->
+            <ion-row>
+              <ion-col class="signup-col">
+                <span text-wrap style="font-size:10px;text-align:left;color:#000 !important">
+                  <ion-icon name="checkmark-circle"></ion-icon> &nbsp;I have
+                  read and agreed with the
+                  <a style="color:#efaf74;text-decoration:underline" (click)="href()">terms and privacy policy</a>
+                </span><br /><br />
+                <button ion-button [disabled]="!authForm.valid" class="submit-btn" color="dark" full type="submit">
+                  <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>&nbsp;signup
+                </button>
+              </ion-col>
+            </ion-row>
+          </form>
+        </div>
+      </ion-row>
+    </ion-list>
+  </div>
+</ion-content>

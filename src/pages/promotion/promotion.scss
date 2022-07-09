@@ -1,0 +1,40 @@
+page-promotion {
+  .contentback {
+    background: url("../../assets/imgs/promo.png") no-repeat center center fixed;
+    background-size: cover;
+    position: fixed !important;
+  }
+  .container {
+    width: 100% !important;
+
+    margin-top: 100px;
+    background: transparent;
+    padding: 25px;
+    overflow: auto !important;
+  }
+  .tabrow {
+    background: #2b529d;
+    width: 100% !important;
+    min-height: 430px;
+    margin: 0px auto;
+    text-align: center;
+    border-radius: 10px;
+  }
+  .carousel-photo {
+    height: 400px;
+  }
+  #notification-button {
+    color: #2b529d;
+  }
+  .toolbar-background-ios,
+  .toolbar-background-md {
+    background: transparent !important;
+    border: none !important;
+  }
+  .scroll-content {
+    // overflow: hidden !important;
+  }
+  h3 {
+    color: #fff;
+  }
+}

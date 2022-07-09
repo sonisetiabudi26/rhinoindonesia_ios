@@ -1,0 +1,101 @@
+<!--
+  Generated template for the ServicePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="forceReload($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-row style="width:100%;z-index:99999;" *ngIf="msg != 'empty'">
+    <!-- <span style="color:#999;padding:10px 0px 0px 15px;"><b></b></span> -->
+    <!-- <ion-card class="radius-border"> -->
+    <ion-row style="background:#2b529d;color:#fff;width:100%;padding:10px;" *ngIf="tipe">
+      Instructions / Installations
+    </ion-row>
+    <ion-row class="tabrow" *ngIf="tipe">
+      <ion-col col-12 *ngFor="let items of itemSub">
+        <ion-row class="tab_product">
+          <ion-col col-12 style="padding:0;text-align:center;">
+            <img src="http://rhinoindonesia.co.id/rhino_cashier/api_rhino/instruction_image/{{
+                items.Instruction_Image
+              }}" style="width:100%;object-fit: cover;border:none" imageViewer />
+          </ion-col>
+
+          <!-- <ion-col col-6 style="padding:0;text-align:center;">
+            <p>{{ items.Instruction_Text }}</p>
+          </ion-col> -->
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row style="background:#2b529d;color:#fff;width:100%;padding:10px;">
+      List Product
+    </ion-row>
+    <ion-row class="tabrow">
+      <ion-col col-4 *ngFor="let items of item">
+        <div *ngIf="items.Product_ID" style="width:auto;margin:0px !important;padding:5px;">
+          <ion-col col-12 style="padding:0;text-align:center;">
+            <ion-row class="tab_product">
+              <img (click)="detailproduct(items.Product_ID)" src="http://rhinoindonesia.co.id/rhino_cashier/api_rhino/product/{{
+                  items.Foto_Product
+                }}" style="height:130px;width:100%;object-fit: cover;border:none" />
+            </ion-row><br />
+            <div>
+              <ion-row class="tab_title">
+                <p style="font-size:10px;text-align:center !important;width:100%;margin:0px auto !important;vertical-align: middle !important;padding:7px !important;text-overflow: none;
+                    height:auto">
+                  {{ items.Product_Name }}
+                </p>
+              </ion-row>
+              <ion-row class="tab_code" *ngIf="items.Kode_Product">
+                <p
+                  style="text-align:center !important;margin:0px auto !important;vertical-align: middle !important;padding:5px;">
+                  {{ items.Kode_Product }}
+                </p>
+              </ion-row>
+            </div>
+          </ion-col>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- </ion-card> -->
+  </ion-row>
+  <ion-row *ngIf="msg == 'empty'">
+    <ion-item no-lines>
+      <ion-row style="text-align:center;margin:0px auto;padding-top:50%">
+        <img src="/assets/imgs/no_data_rhino.png"
+          style="width:30%;height:30%;text-align:center;margin:0px auto;left:50;top:50" /><br />
+      </ion-row>
+      <ion-row style="text-align:center;margin:0px auto;left:50;top:50">
+        <h4 style="color:#777;text-align:center;margin:0px auto;left:50;top:50">
+          No data result
+        </h4>
+      </ion-row>
+    </ion-item>
+  </ion-row>
+</ion-content>
+<ion-footer no-border *ngIf="!tipe">
+  <ion-toolbar transparent style="margin:0px auto;text-align: center">
+    <!-- <button
+      full
+      style="background: transparent;color:#fff;text-align: center;margin:0px auto"
+      text-uppercase
+    > -->
+    <span (click)="listInstruction(category_id)" style="margin:0px auto;text-align:center;color:#fff"><b>Download
+        Instructions</b></span>
+    <!-- </button> -->
+  </ion-toolbar>
+</ion-footer>

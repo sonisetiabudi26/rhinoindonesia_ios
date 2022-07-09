@@ -1,0 +1,47 @@
+{
+	"pods": {
+		"Firebase/Core": {
+			"type": "pod",
+			"name": "Firebase/Core",
+			"spec": "$IOS_FIREBASE_CORE_VERSION"
+		},
+		"Firebase/Auth": {
+			"type": "pod",
+			"name": "Firebase/Auth",
+			"spec": "$IOS_FIREBASE_AUTH_VERSION"
+		},
+		"Firebase/Messaging": {
+			"type": "pod",
+			"name": "Firebase/Messaging",
+			"spec": "$IOS_FIREBASE_MESSAGING_VERSION"
+		},
+		"Firebase/Performance": {
+			"type": "pod",
+			"name": "Firebase/Performance",
+			"spec": "$IOS_FIREBASE_PERFORMANCE_VERSION"
+		},
+		"Firebase/RemoteConfig": {
+			"type": "pod",
+			"name": "Firebase/RemoteConfig",
+			"spec": "$IOS_FIREBASE_REMOTECONFIG_VERSION"
+		},
+		"Fabric": {
+			"type": "pod",
+			"name": "Fabric",
+			"spec": "$IOS_FABRIC_VERSION"
+		},
+		"Crashlytics": {
+			"type": "pod",
+			"name": "Crashlytics",
+			"spec": "$IOS_CRASHLYTICS_VERSION"
+		},
+		"XCDYouTubeKit": {
+			"type": "podspec",
+			"src": "XCDYouTubeKit",
+			"spec": "~> 2.7"
+		}
+	},
+	"sources": {},
+	"iosMinVersion": "9.0",
+	"useFrameworks": true
+}

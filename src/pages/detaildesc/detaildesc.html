@@ -1,0 +1,28 @@
+<!--
+  Generated template for the AboutusPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Detail Product</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-row *ngFor="let item of news">
+    <img
+      src="http://rhinoindonesia.co.id/rhino_cashier/api_rhino/product/{{
+        item.Foto_Product
+      }}"
+      style="width:100% !important;height:100% !important"
+    /><br />
+    <h3>{{ item.Kode_Product }} - {{ item.Product_Name }}</h3>
+    <!-- <p style="text-align:justify">{{ item.Product_Desc }}</p> -->
+    <div
+      text-wrap
+      style="text-align:justify;font-size:12px"
+      innerHtml="{{ getText(item.Product_Desc) }}"
+    ></div>
+  </ion-row>
+</ion-content>

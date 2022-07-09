@@ -1,0 +1,41 @@
+<!--
+  Generated template for the RatingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="margin:0px auto;text-align:center">
+
+  <ion-row ><h4 style="margin:0px auto;text-align:center"><b>PLEASE REVIEW YOUR EXPERIENCE</b></h4></ion-row><br>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col col-12 style="margin:0px auto;">
+    <img class="radius-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLs7jKv2BViZ5EYCFaDVOlpMXMS2F9FHujQidwKSZeVH-zp8BE">
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row><br>
+  <rating [(ngModel)]="rate"
+        readOnly="false"
+        max="5"
+        emptyStarIconName="star-outline"
+        halfStarIconName="star-half"
+        starIconName="star"
+        nullable="false"
+        > <!--use it when you need to do something when user clicks on a star. in case you only need to change ngModel property, this property can be ommited.-->
+</rating><br>
+<ion-row ><span style="margin:0px auto;text-align:center">Give 1 star for bad service, 5 for good</span></ion-row><br>
+<ion-row style="margin:0px auto;text-align:center"><ion-textarea [(ngModel)]="comment" #myInput id="myInput" rows="5" maxLength="500"  color='dark' placeholder="Comment"  minlength="1" name="Comment" round type="notes"></ion-textarea></ion-row>
+</div><br>
+<ion-row>  <button  ion-button class="submit-btn" color="dark" full (click)="submit()" type="submit" >Submit</button>
+</ion-row>
+</ion-content>

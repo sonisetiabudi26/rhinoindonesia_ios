@@ -1,0 +1,22 @@
+page-detailmap {
+  #map {
+          width: 100%;
+          height: 30%;
+      }
+      .header-personal3{
+        background:#222;
+
+
+      }
+      ion-item{
+        border:none !important;
+        background:transparent !important;
+      }
+      .thumbnail-right>ion-icon{
+        // border-right:0.7px solid #999;
+        // padding-right: 10px;
+        padding-top:25%;
+        padding-left:25%;
+      }
+    
+}

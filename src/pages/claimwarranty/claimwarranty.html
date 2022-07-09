@@ -1,0 +1,65 @@
+<!--
+  Generated template for the NewsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Claim Warranty</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="forceReload($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-row *ngFor="let item of items">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img
+            class="radius-pic"
+            src="http://rhinoindonesia.co.id/rhino_cashier/api_rhino/product/{{
+              item.Foto_Product
+            }}"
+          />
+        </ion-thumbnail>
+
+        <h3 text-wrap>{{ item.Product_Name }}</h3>
+        <span style="font-size:10px;text-align:left !important;color:#666;"
+          >Serial No.{{ item.Serial_Number }}</span
+        ><br />
+        <span style="font-size:12px;text-align:left !important;color:#000;"
+          >Warranty until {{ item.Garansi_Sampai }}</span
+        >
+      </ion-item>
+      <!-- <button ion-button clear item-end style="color:orange !important" >View</button> -->
+    </ion-row>
+    <ion-row padding>
+      <ion-input
+        #myInput
+        id="myInput"
+        maxLength="700"
+        placeholder="Claim Content"
+        minlength="1"
+        name="content"
+        round
+        (keyup)="resize()"
+        type="notes"
+        [(ngModel)]="content"
+      ></ion-input>
+    </ion-row>
+    <ion-row padding>
+      <button ion-button style="background:orange" full (click)="submit()">
+        Claim
+      </button>
+    </ion-row>
+  </ion-list>
+</ion-content>

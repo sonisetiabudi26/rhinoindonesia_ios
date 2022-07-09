@@ -1,0 +1,99 @@
+<!--
+  Generated template for the HistoryRewardsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>History Poin</ion-title>
+    <!-- <ion-buttons end>
+      <button id="notification-button" ion-button icon-only (click)="closeModal()">
+        <ion-icon style="color:#fff" ios="ios-close" md="md-close"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="contentback">
+  <ion-refresher (ionRefresh)="forceReload($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <!-- <ion-refresher (ionRefresh)="forceReload($event)">
+      <ion-refresher-content style="color:#fff" refreshingText="Refresh Data">
+      </ion-refresher-content>
+    </ion-refresher> -->
+  <ion-row style="width:100%;position: fixed;z-index:-999999;margin-top:-50px">
+    <ion-col col-12 style="margin:0 auto;text-align:center">
+      <img src="/assets/imgs/logo_top.png" style="width:50%;padding:40px" />
+    </ion-col>
+  </ion-row>
+  <div class="container">
+    <div class="tabrow" *ngIf="msg != 'empty'" padding>
+      <div *ngFor="let d of itemTranscation">
+        <ion-item no-lines *ngIf="d.tipe=='transaction'&&d.id" class="radius-border" (click)="detail(d.id)">
+          <!-- <img src="http://triquetra.asia/barbershop/outlet_images/{{location.outlet_image}}"/> -->
+
+          <ion-avatar item-start>
+            <img src="http://rhinoindonesia.co.id/rhino_cashier/distributor_images/{{
+              d.image
+            }}" />
+          </ion-avatar>
+          <h4 text-wrap style="z-index:99999999">
+            <b>No. Transaction {{ d.number }}</b>
+          </h4>
+          <h4>{{ d.date }}</h4>
+          <p>{{ d.tipe }} Product</p><br>
+          <p>{{ d.nama }}</p><br>
+          <b style="color:yellowgreen">+ {{d.poin | number: fractionSize}} Poins</b>
+        </ion-item>
+
+        <ion-item no-lines *ngIf="d.tipe=='reward'&&d.id" class="radius-border" >
+          <!-- <img src="http://triquetra.asia/barbershop/outlet_images/{{location.outlet_image}}"/> -->
+        
+          <ion-avatar item-start>
+            <img src="http://rhinoindonesia.co.id/rhino_cashier/api_rhino/product/{{
+                      d.image
+                    }}" />
+          </ion-avatar>
+          <!-- <h4 text-wrap style="z-index:99999999">
+            <b>No. Transaction {{ d.Transaction_Number }}</b>
+          </h4> -->
+          <h4>{{ d.date }}</h4>
+          <p>Exchange Product {{ d.tipe }}</p><br>
+          <p>{{ d.nama }}</p><br>
+          <b style="color:red">- {{d.poin | number: fractionSize}} Poins</b>
+        </ion-item>
+        <ion-item no-lines *ngIf="d.tipe=='void'&&d.id" class="radius-border" >
+          <!-- <img src="http://triquetra.asia/barbershop/outlet_images/{{location.outlet_image}}"/> -->
+        
+          <ion-avatar item-start>
+            <img src="http://rhinoindonesia.co.id/rhino_cashier/api_rhino/product/{{
+                      d.image
+                    }}" />
+          </ion-avatar>
+          <!-- <h4 text-wrap style="z-index:99999999">
+            <b>No. Transaction {{ d.Transaction_Number }}</b>
+          </h4> -->
+          <h4>{{ d.date }}</h4>
+          <p>{{ d.tipe }} Transaction</p><br>
+          <p>{{ d.nama }}</p><br>
+          <b style="color:red">- {{d.poin | number: fractionSize}} Poins</b>
+        </ion-item>
+      </div>
+    </div>
+    <ion-item no-lines *ngIf="msg == 'empty'" class="tabrow">
+      <ion-row style="text-align:center;margin:0px auto;">
+        <img src="/assets/imgs/no_data_rhino.png"
+          style="width:30%;height:30%;text-align:center;margin:0px auto;left:50;top:50" /><br />
+      </ion-row>
+      <ion-row style="text-align:center;margin:0px auto;left:50;top:50">
+        <h4 style="color:#fff;text-align:center;margin:0px auto;left:50;top:50">
+          No data result
+        </h4>
+      </ion-row>
+    </ion-item>
+  </div>
+</ion-content>

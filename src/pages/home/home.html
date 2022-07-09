@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Rhino</ion-title>
+    <ion-buttons end>
+      <button id="notification-button" ion-button icon-only (click)="notif()">
+        <ion-icon ios="ios-notifications" md="md-notifications"
+          ><ion-badge
+            *ngIf="notification"
+            id="notifications-badge"
+            color="danger"
+            ><div></div></ion-badge
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-background">
+  <ion-row>
+    <ion-card
+      style="background:transparent"
+      class="radius-border"
+      *ngIf="itemCard && itemCard.length"
+    >
+      <div
+        class="swiper-zoom-container"
+        *ngFor="let item of itemCard; let i = index"
+      >
+        <img
+          src="http://rhinoindonesia.co.id/rhino_cashier/card_images/{{
+            item.img
+          }}"
+          imageViewer
+          style=" object-fit: cover;"
+        />
+      </div>
+      <div
+        style="position: relative;width:100%; margin-top:-70px;height:70px;background: rgba(7, 0, 4, 0.6);z-index: 999999999999;border-bottom-left-radius:5px;border-bottom-right-radius:5px;"
+      >
+        <div style="padding:10px;z-index: 99999999;">
+          <h2 style="color:#efaf74;z-index: 99999999;">
+            <b>{{ nama }}</b>
+          </h2>
+          <span style="color:#efaf74;z-index: 99999999;" *ngIf="!card"
+            ><b
+              ><ion-icon ios="ios-ribbon" md="md-ribbon"></ion-icon>
+              {{ itemPoin }} Points</b
+            ></span
+          >
+          <span style="color:#efaf74;z-index: 99999999;" *ngIf="card"
+            ><b>Valid Until {{ valid }}</b></span
+          >
+        </div>
+      </div>
+    </ion-card>
+  </ion-row>
+  <ion-row *ngIf="Activation" style="width:100%;z-index:99999;">
+    <ion-col col-12>
+      <span style="color:#999;padding-left:15px;"><b>Promotion</b></span>
+      <span
+        style="color:#999;padding-right:15px;float:right;font-size:12px;"
+        (click)="Allpromotion()"
+        ><b>See All&nbsp;<ion-icon name="arrow-forward"></ion-icon></b
+      ></span>
+    </ion-col>
+    <ion-card class="radius-border" class="carousel-photo">
+      <ion-slides
+        *ngIf="itemPrmotions && itemPrmotions.length"
+        pager="true"
+        autoplay="5000"
+        loop="false"
+        speed="1000"
+        pager
+      >
+        <ion-slide *ngFor="let item of itemPrmotions; let i = index">
+          <img
+            src="http://rhinoindonesia.co.id/rhino_cashier/promo_image/{{
+              item.promotion_image
+            }}"
+            imageViewer
+            style=" object-fit: cover;margin:0px auto"
+          />
+        </ion-slide>
+      </ion-slides>
+    </ion-card>
+  </ion-row>
+  <ion-row>
+    <ion-col class="button-activation">
+      <button
+        *ngIf="!Activation"
+        ion-button
+        class="submit-btn"
+        style="background:#009068"
+        full
+        (click)="Active()"
+        type="submit"
+      >
+        <ion-icon ios="ios-lock" md="md-lock"></ion-icon>&nbsp;Activation
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-content>
