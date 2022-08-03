@@ -92,6 +92,7 @@
     "@ionic/lab": "1.0.11",
     "@types/googlemaps": "^3.39.0",
     "cordova-ios": "^5.1.1",
+    "execa": "^6.1.0",
     "mx.ferreyra.callnumber": "0.0.2",
     "typescript": "^3.4.3"
   },

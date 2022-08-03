@@ -36,7 +36,10 @@ export class BusinessSimulationPage {
   public hideMe: any = 'hide';
   public bahan: any = [];
   public media: any = [];
+  public flagJasa:any;
   public anArray: any = [];
+  DECIMAL_SEPARATOR=".";
+  GROUP_SEPARATOR=",";
   constructor(public navCtrl: NavController, public navParams: NavParams, public SelectDataAuth: GetapiProvider,) {
     this.clearData();
     console.log(this.anArray.length);
@@ -68,8 +71,11 @@ export class BusinessSimulationPage {
       'hargaJual': 0,
       'produksi': 0,
       'ukuranDesign': '',
+      'hargaMaterial':'',
       'subCategoryID': '',
       'nameBahan': '',
+      'nameProduct':'',
+      'description':'',
       'mediaSablon': '',
       'costOperational': 1000,
       'hargaSablon': 0,
@@ -93,8 +99,11 @@ export class BusinessSimulationPage {
       'hargaJual': 0,
       'produksi': 0,
       'ukuranDesign': '',
+      'hargaMaterial': '',
       'subCategoryID': '',
       'nameBahan': '',
+      'nameProduct':'',
+      'description':'',
       'mediaSablon': '',
       'costOperational': 1000,
       'hargaSablon': 0,
@@ -159,6 +168,7 @@ export class BusinessSimulationPage {
     var param = $event.split('~');
     this.subCatID = param[0];
     this.namaBahan = param[1];
+    this.flagJasa=param[3];
     var index = this.anArray.findIndex(function (o) {
       return o.id === id;
     })
@@ -171,8 +181,11 @@ export class BusinessSimulationPage {
           'hargaJual': 0,
           'produksi': 0,
           'ukuranDesign': param[3],
+          'hargaMaterial':param[6],
           'subCategoryID': param[0],
           'nameBahan': param[1],
+          'nameProduct': param[5],
+          'description':param[4],
           'costOperational': 1000,
           'mediaSablon': '',
           'hargaSablon': 0,
@@ -292,9 +305,34 @@ export class BusinessSimulationPage {
 
     }
     console.log(this.anArray);
+    // return this.addCommas($event.target.value);
+    // let val = $event.target.value.toString();
+    // const parts = this.unFormat(val).split(this.DECIMAL_SEPARATOR);
+    // return parts[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, this.GROUP_SEPARATOR) + (!parts[1] ? '' : this.DECIMAL_SEPARATOR + parts[1]);
   }
+  format(valString) {
+    if (!valString) {
+        return '';
+    }
+    let val = valString.toString();
+    const parts = this.unFormat(val).split(this.DECIMAL_SEPARATOR);
+    return parts[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, this.GROUP_SEPARATOR) + (!parts[1] ? '' : this.DECIMAL_SEPARATOR + parts[1]);
+};
+
+unFormat(val) {
+    if (!val) {
+        return '';
+    }
+    val = val.replace(/^0+/, '');
+
+    if (this.GROUP_SEPARATOR === ',') {
+        return val.replace(/,/g, '');
+    } else {
+        return val.replace(/\./g, '');
+    }
+};
   calculate() {
-    if (this.anArray.length > 0 && this.itemPaket[0].pricePaket != null) {
+    if (this.anArray.length > 0 && this.itemPaket[0].pricePaket != null ) {
 
       this.navCtrl.push(DetailSimulationPage, {
         queryParams: {

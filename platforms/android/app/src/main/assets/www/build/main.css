@@ -25995,6 +25995,10 @@ page-business-simulation .dropdown {
   box-shadow: none !important;
 }
 
+page-business-simulation .text-header {
+  white-space: normal !important;
+}
+
 page-business-simulation .box-price {
   font-size: 0.9em;
   width: 100%;

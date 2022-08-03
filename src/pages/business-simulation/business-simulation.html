@@ -40,13 +40,15 @@
       text-align: center;
     ">
       <ion-col col-8>
-        <ion-label style="font-weight: bold">Jenis Bahan & ukuran design</ion-label>
+        <ion-label class="text-header" text-wrap style="font-weight: bold;font-size: 12px;text-align: center;">Jenis
+          Bahan & ukuran design</ion-label>
       </ion-col>
       <!-- <ion-col col-4>
         <ion-label style="font-weight: bold">Ukuran Design</ion-label>
       </ion-col> -->
       <ion-col col-4>
-        <ion-label style="font-weight: bold">Harga</ion-label>
+        <ion-label class="text-header" style="font-weight: bold;font-size: 12px;text-align: center !important;">Harga
+        </ion-label>
       </ion-col>
     </ion-row>
 
@@ -63,8 +65,17 @@
             interface="popover" text-wrap>
             <div *ngFor="let group of bahanAll">
               <ion-option
-                value="{{ group.Sub_Category_Id }}~{{group.Name_Sub}}~{{group.Price}}~{{group.Ukuran_Design}}">{{
+                *ngIf="group.Package_Business_ID!=3&&group.Package_Business_ID!=5&&group.Package_Business_ID!=6"
+                value="{{ group.Sub_Category_Id }}~{{group.Name_Sub}}~{{group.Price}}~{{group.Ukuran_Design}}~{{group.Description}}~{{group.Product_Name}}~{{group.Retail_Price}}">
+                {{
                 group.Name_Sub }} -
+                {{
+                group.Ukuran_Design }}</ion-option>
+              <ion-option
+                *ngIf="group.Package_Business_ID==3||group.Package_Business_ID==5||group.Package_Business_ID==6"
+                value="{{ group.Sub_Category_Id }}~{{group.Name_Sub}}~{{group.Price}}~{{group.Ukuran_Design}}~{{group.Description}}~{{group.Product_Name}}">
+                {{
+                group.Product_Name }} -
                 {{
                 group.Ukuran_Design }}</ion-option>
             </div>
@@ -92,20 +103,20 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-row style="
+    <ion-row *ngIf="flagJasa!='1M'" style="
       align-content: center;
       align-items: center;
       align-self: center;
       text-align: center;
     ">
       <ion-col col-8>
-        <ion-label style="font-weight: bold">Media Sablon</ion-label>
+        <ion-label class="text-header" style="font-weight: bold;font-size: 12px;">Media Sablon</ion-label>
       </ion-col>
       <ion-col col-4>
-        <ion-label style="font-weight: bold">Harga</ion-label>
+        <ion-label class="text-header" style="font-weight: bold;font-size: 12px;text-align: center;">Harga</ion-label>
       </ion-col>
     </ion-row>
-    <ion-row style="
+    <ion-row *ngIf="flagJasa!='1M'" style="
       align-content: center;
       align-items: center;
       align-self: center;
@@ -139,10 +150,12 @@
       text-align: center;
     ">
       <ion-col col-8>
-        <ion-label style="font-weight: bold">Harga Jual (/pcs)</ion-label>
+        <ion-label class="text-header" style="font-weight: bold;font-size: 12px;text-align: center;">Harga Jual (/pcs)
+        </ion-label>
       </ion-col>
       <ion-col col-4>
-        <ion-label style="font-weight: bold">Jumlah Produksi (/hari)</ion-label>
+        <ion-label class="text-header" text-wrap style="font-weight: bold;font-size: 12px;text-align: center;">Jumlah
+          Produksi (/hari)</ion-label>
       </ion-col>
     </ion-row>
     <ion-row style="
@@ -153,15 +166,16 @@
     ">
       <ion-col col-8>
         <ion-item class="box-input" no-lines>
-          <ion-input type="number" [(ngModel)]="anArray[idx].hargaJual" (keyup)="updateList($event,idx+1,'hargajual')"
-            name="hargaJual" placeholder="Number Input with no label">
+          <ion-input pattern="^[$\-\s]*[\d\,]*?([\.]\d{0,10})?\s*$" (input)="budget = format(anArray[idx].budget)"
+            [(ngModel)]="anArray[idx].budget" (keyup)="updateList($event,idx+1,'hargajual')" name="hargaJual"
+            #myBudget="ngModel" placeholder="Harga Jual">
           </ion-input>
         </ion-item>
       </ion-col>
       <ion-col col-4>
         <ion-item class="box-input" no-lines>
           <ion-input type="number" [(ngModel)]="anArray[idx].produksi" (keyup)="updateList($event,idx+1,'produksi')"
-            name="produksi" placeholder="Number Input with no label">
+            name="produksi" placeholder="Jumlah Produksi">
           </ion-input>
         </ion-item>
       </ion-col>

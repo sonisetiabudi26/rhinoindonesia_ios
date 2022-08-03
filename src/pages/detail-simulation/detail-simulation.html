@@ -56,29 +56,177 @@
   <div class="row title-table">
     <div class="col">Simulasi COP (Cost of Production)</div>
   </div>
-  <table id="customers">
-    <tbody *ngFor="let att of detailItem;let idx = index">
+
+  <table id="customers" *ngIf="paketID=='5'">
+    <tr>
+      <td style="width: 60%;">WHITE INK / 1L (1L = 1 roll pet film)
+      </td>
+      <td style="width: 10%;">1L</td>
+      <td style="width: 30%;text-align: right;">{{getHargaJual(whiteInk)}}</td>
+    </tr>
+    <tr>
+      <td style="width: 60%;">CMYK INK --> 1L Rp. {{getHargaJual(cmykInk)}}  (1 Set cmyk = 4 roll pet film)
+      </td>
+      <td style="width: 10%;">1L</td>
+      <td style="width: 30%;text-align: right;">{{getHargaJual(cmykInk)}}</td>
+    </tr>
+    <tr>
+      <td style="width: 60%;">PET FILM
+      </td>
+      <td style="width: 10%;">1</td>
+      <td style="width: 30%;text-align: right;">{{getHargaJual(petFilm)}}</td>
+    </tr>
+    <tr>
+      <td style="width: 60%;">POWDER  (1kg powder = 1 roll pet film)
+      </td>
+      <td style="width: 10%;">1KG</td>
+      <td style="width: 30%;text-align: right;">{{getHargaJual(powder)}}</td>
+    </tr>
+    <tr>
+      <td style="width: 70%;font-weight: bold;" colspan="2">ESTIMATE COST PRODUKSI 100m / 1 Roll
+      </td>
+      <td style="width: 30%;text-align: right;font-weight: bold;">{{getTotalcostProddtfa3roll()}}</td>
+    </tr>
+    <tr>
+      <td style="width: 70%;font-weight: bold;" colspan="2">ESTIMATE  COST PRODUKSI 1 M -  (33x100cm)
+      </td>
+      <td style="width: 30%;text-align: right;font-weight: bold;">{{getTotalcostProddtfa3()}}</td>
+    </tr>
+    
+  </table>
+
+
+  <table id="customers" *ngIf="paketID=='6'">
+    <tr>
+      <td style="width: 60%;">WHITE INK / 1L (2L = 1 roll pet film)
+      </td>
+      <td style="width: 10%;">2L</td>
+      <td style="width: 30%;text-align: right;">{{getHargaJual(whiteInk)}}</td>
+    </tr>
+    <tr>
+      <td style="width: 60%;">CMYK INK --> 1L Rp. {{getHargaJual(cmykInkSatuan)}}  (1 Set cmyk = 2 roll pet film)
+      </td>
+      <td style="width: 10%;">2L</td>
+      <td style="width: 30%;text-align: right;">{{getHargaJual(cmykInk)}}</td>
+    </tr>
+    <tr>
+      <td style="width: 60%;">PET FILM
+      </td>
+      <td style="width: 10%;">1</td>
+      <td style="width: 30%;text-align: right;">{{getHargaJual(petFilm)}}</td>
+    </tr>
+    <tr>
+      <td style="width: 60%;">POWDER  (2kg powder = 1 roll pet film)
+      </td>
+      <td style="width: 10%;">2KG</td>
+      <td style="width: 30%;text-align: right;">{{getHargaJual(powder)}}</td>
+    </tr>
+    <tr>
+      <td style="width: 70%;font-weight: bold;" colspan="2">ESTIMATE COST PRODUKSI 100m / 1 Roll
+      </td>
+      <td style="width: 30%;text-align: right;font-weight: bold;">{{getTotalcostProddtfa3roll()}}</td>
+    </tr>
+    <tr>
+      <td style="width: 70%;font-weight: bold;" colspan="2">ESTIMATE  COST PRODUKSI 1 M -  (33x100cm)
+      </td>
+      <td style="width: 30%;text-align: right;font-weight: bold;">{{getTotalcostProddtfa3()}}</td>
+    </tr>
+    
+  </table>
+  
+
+
+
+  <table id="customers" *ngIf="paketID=='4'">
+    <tr>
+      <td style="width: 60%;">TINTA ECO SOLVENT 6 WARNA (CMYK+LCLM) --> 1L : Rp {{getHargaJual(tinta)}}
+      </td>
+      <td style="width: 10%;">6L</td>
+      <td style="width: 30%;text-align: right;">{{getHargaTintaPack(tinta)}}</td>
+    </tr>
+    <tr>
+      <td style="width: 60%;">SATUAN TINTA PER ML
+      </td>
+      <td style="width: 10%;">1 ML</td>
+      <td style="width: 30%;text-align: right;">{{getHargaSatuan(tinta)}}</td>
+    </tr>
+    <tr>
+      <td style="width: 60%;">ASUMSI KONSUMSI TINTA PER M²
+      </td>
+      <td style="width: 10%;">10 ML</td>
+      <td style="width: 30%;text-align: right;">{{getHargaTinta(tinta)}}</td>
+    </tr>
+    <tr>
+      <td style="width: 60%;">KONSUMSI TINTA CLEANING SOLUTION
+      </td>
+      <td style="width: 10%;">2 ML</td>
+      <td style="width: 30%;text-align: right;">{{getHargaCleansing(tintaClensing)}}</td>
+    </tr>
+    <tr>
+      <td style="width: 70%;font-weight: bold;" colspan="2">COST TINTA PRINT 1 M²
+      </td>
+      <!-- <td style="width: 10%;font-weight: bold;">12 ML</td> -->
+      <td style="width: 30%;text-align: right;font-weight: bold;">{{getHargaCostTinta(tinta)}}</td>
+    </tr>
+  </table>
+  <div style="width:100%" *ngIf="paketID=='4'">
+    <table id="customers" *ngFor="let att of detailItem;let idx = index">
+      <!-- <div > -->
       <tr>
-        <td style="width: 60%;">{{att.nameBahan}} uk {{att.ukuranDesign}}</td>
+        <td style="width: 60%;">{{att.nameBahan}} 1 Meter</td>
         <td style="width: 10%;">1</td>
-        <td style="width: 30%;text-align: right;">{{att.priceBahan}}</td>
+        <td style="width: 30%;text-align: right;">{{getHargaJual(att.hargaMaterial)}}</td>
       </tr>
       <tr>
-        <td style="width: 60%;">{{att.mediaSablon}}</td>
+        <td style="width: 60%;">Masking Tape</td>
         <td style="width: 10%;">1</td>
-        <td style="width: 30%;text-align: right;">{{att.hargaSablon}}</td>
+        <td style="width: 30%;text-align: right;">{{getHargaJual(masking)}}</td>
       </tr>
       <tr>
         <td style="width: 60%;">ASUMSI OPRASIONAL COST Listrik , Karyawan , Consumable Part</td>
         <td style="width: 10%;">1</td>
+        <td style="width: 30%;text-align: right;">10,000</td>
+      </tr>
+      <tr>
+        <td style="width: 70%;font-weight: bold;" colspan="2">TOTAL COST PRINT 1M {{att.nameBahan}}
+        </td>
+        <!-- <td style="width: 10%;font-weight: bold;">12 ML</td> -->
+        <td style="width: 30%;text-align: right;font-weight: bold;">
+          {{totalApparelKomplit(totalCostTinta,att.hargaMaterial,masking)}}</td>
+      </tr>
+      <!-- </div> -->
+    </table>
+  </div>
+  <table id="customers">
+    <tbody *ngFor="let att of detailItem;let idx = index">
+      <tr *ngIf="paketID=='1'&&paketID=='2'">
+        <td style="width: 60%;">{{att.nameBahan}} 1 Meter</td>
+        <td style="width: 10%;">1</td>
+        <td style="width: 30%;text-align: right;">{{getHargaJual(att.hargaMaterial)}}</td>
+      </tr>
+      <tr *ngIf="att.mediaSablon!=''">
+        <td style="width: 60%;">{{paketID==3||paketID==5||paketID==6?att.nameProduct:att.nameBahan}} uk
+          {{att.ukuranDesign}} {{(att.description!=null?att.description:'')}}</td>
+        <td style="width: 10%;">1</td>
+        <td style="width: 30%;text-align: right;">{{att.priceBahan}}</td>
+      </tr>
+      <tr *ngIf="att.mediaSablon!=''">
+        <td style="width: 60%;">{{att.mediaSablon}}</td>
+        <td style="width: 10%;">1</td>
+        <td style="width: 30%;text-align: right;">{{att.hargaSablon}}</td>
+      </tr>
+      <tr *ngIf="paketID!='5'&&paketID!='6'&&paketID!=4">
+        <td style="width: 60%;">ASUMSI OPRASIONAL COST Listrik , Karyawan , Consumable Part</td>
+        <td style="width: 10%;">1</td>
         <td style="width: 30%;text-align: right;">1,000</td>
       </tr>
+
     </tbody>
   </table>
   <div>
     <table id="customers">
       <tbody *ngFor="let att of detailItem; let idx = index">
-        <tr>
+        <tr *ngIf="att.mediaSablon!=''">
           <td style="width: 70%;">
             <b>Total Cost Produksi</b>
           </td>
@@ -135,29 +283,58 @@
   </div> -->
   <table id="customers">
     <tbody *ngFor="let item of detailItem; let idx = index">
-      <tr>
+      <tr *ngIf="item.mediaSablon==''">
         <td style="width: 60%;">
-          Cost Produksi produk
+          Cost Produksi
         </td>
         <td style="width: 10%;">
           1
         </td>
-        <td style="width: 30%;text-align: right;">{{item.costProduksi}}</td>
+        <td style="width: 30%;text-align: right;">{{getHargaJual(costProd)}}</td>
       </tr>
-      <tr>
+      <tr *ngIf="item.mediaSablon==''">
         <td>
-          Asumsi jual produk
+          ASUMSI JUAL JASA PRINT  1M (30x100cm)
         </td>
         <td>
           1
         </td>
-        <td style="text-align: right">{{item.hargaJual}}</td>
+        <td style="text-align: right">{{getHargaJual(item.hargaJual)}}</td>
+      </tr>
+      <tr *ngIf="item.mediaSablon==''">
+        <td style="width: 70%;font-weight: bold;" colspan="2">PROFIT PENJUALAN  1M (30x100cm)
+        </td>
+        <td style="width: 30%;text-align: right;font-weight: bold;">{{getMarginJasa(idx)}}</td>
       </tr>
     </tbody>
   </table>
   <table id="customers">
     <tbody *ngFor="let item of detailItem; let idx = index">
-      <tr>
+      <tr *ngIf="item.mediaSablon!=''">
+        <td style="width: 60%;">
+          Cost Produksi produk {{paketID==3||paketID==5||paketID==6?item.nameProduct:item.nameBahan}}
+          ({{item.mediaSablon}})
+        </td>
+        <td style="width: 10%;">
+          1
+        </td>
+        <td style="width: 30%;text-align: right;">{{getHargaJual(item.costProduksi)}}</td>
+      </tr>
+      <tr *ngIf="item.mediaSablon!=''">
+        <td>
+          Asumsi jual produk {{paketID==3||paketID==5||paketID==6?item.nameProduct:item.nameBahan}}
+          ({{item.mediaSablon}})
+        </td>
+        <td>
+          1
+        </td>
+        <td style="text-align: right">{{getHargaJual(item.hargaJual)}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table id="customers">
+    <tbody *ngFor="let item of detailItem; let idx = index">
+      <tr *ngIf="item.mediaSablon!=''">
         <td style="width: 70%;">
           <b> Profit Penjualan {{item.mediaSablon}}</b>
         </td>

@@ -3,11 +3,11 @@
   "integrations": {
     "cordova": {}
   },
+  "type": "ionic-angular",
   "proxies": [
     {
       "path": "/api",
       "proxyUrl": "http://captainbarbershop.co.id/internal_cashier/"
     }
-  ],
-  "type": "ionic-angular"
+  ]
 }

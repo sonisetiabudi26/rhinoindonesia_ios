@@ -74,44 +74,44 @@ export class MyApp {
     platform.ready().then(() => {
       this.load();
       let options = { maximumAge: 0, timeout: 30000, enableHighAccuracy: true };
-      // this.subscription = this.geolocation
-      //   .watchPosition(options)
-      //   .filter(p => p.coords !== undefined) //Filter Out Errors
-      //   .subscribe(position => {
-      //     this.lon = position.coords.longitude.toString();
-      //     this.lat = position.coords.latitude.toString();
-      //     localStorage.setItem("lon", this.lon);
-      //     localStorage.setItem("lat", this.lat);
-      //   });
-      // if (
-      //   localStorage.getItem("login_id") != null &&
-      //   localStorage.getItem("login_id") != undefined
-      // ) {
+      this.subscription = this.geolocation
+        .watchPosition(options)
+        .filter(p => p.coords !== undefined) //Filter Out Errors
+        .subscribe(position => {
+          this.lon = position.coords.longitude.toString();
+          this.lat = position.coords.latitude.toString();
+          localStorage.setItem("lon", this.lon);
+          localStorage.setItem("lat", this.lat);
+        });
+      if (
+        localStorage.getItem("login_id") != null &&
+        localStorage.getItem("login_id") != undefined
+      ) {
 
-      //   this.firebase
-      //     .getToken()
-      //     .then(token =>
-      //       this.savetoken(token, localStorage.getItem("login_id"))
-      //     ) // save the token server-side and use it to push notifications to this device
-      //     .catch(error => console.error("Error getting token", error));
+        this.firebase
+          .getToken()
+          .then(token =>
+            this.savetoken(token, localStorage.getItem("login_id"))
+          ) // save the token server-side and use it to push notifications to this device
+          .catch(error => console.error("Error getting token", error));
 
-      //   this.firebase
-      //     .onNotificationOpen()
-      //     .subscribe(data => localStorage.setItem("notification", "1"));
-      // } else {
-      //   events.subscribe("memberid:created", (memberid, time) => {
-      //     if (memberid != undefined) {
-      //       this.firebase
-      //         .getToken()
-      //         .then(token => this.savetoken(token, memberid)) // save the token server-side and use it to push notifications to this device
-      //         .catch(error => console.error("Error getting token", error));
+        this.firebase
+          .onNotificationOpen()
+          .subscribe(data => localStorage.setItem("notification", "1"));
+      } else {
+        events.subscribe("memberid:created", (memberid, time) => {
+          if (memberid != undefined) {
+            this.firebase
+              .getToken()
+              .then(token => this.savetoken(token, memberid)) // save the token server-side and use it to push notifications to this device
+              .catch(error => console.error("Error getting token", error));
 
-      //       this.firebase
-      //         .onNotificationOpen()
-      //         .subscribe(data => localStorage.setItem("notification", "1"));
-      //     }
-      //   });
-      // }
+            this.firebase 
+              .onNotificationOpen()
+              .subscribe(data => localStorage.setItem("notification", "1"));
+          }
+        });
+      }
 
       this.name = localStorage.getItem("name");
       this.poin = localStorage.getItem("poin");
