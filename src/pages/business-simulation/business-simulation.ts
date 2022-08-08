@@ -83,7 +83,9 @@ export class BusinessSimulationPage {
       'costProduksi': 0
     });
     this.itemPaket = [];
+    this.bahanAll=[];
     this.mediaPackage = [];
+    this.mediaPackage=[];
   }
 
   ionViewDidLoad() {
@@ -134,6 +136,7 @@ export class BusinessSimulationPage {
 
         if (result[0].msg != "gagal") {
           console.log(result);
+          this.bahan[0] = "";
           this.bahanAll = result;
           this.loadMedia(param[0]);
         } else {
@@ -164,7 +167,26 @@ export class BusinessSimulationPage {
     );
   }
   onChangeBahan($event, id) {
-    console.log(id);
+   if(this.bahan[0]==''){
+    this.anArray = [];
+    this.anArray.push({
+      'id': 1,
+      'priceBahan': 0,
+      'hargaJual': 0,
+      'produksi': 0,
+      'ukuranDesign': '',
+      'hargaMaterial':'',
+      'subCategoryID': '',
+      'nameBahan': '',
+      'nameProduct':'',
+      'description':'',
+      'mediaSablon': '',
+      'costOperational': 1000,
+      'hargaSablon': 0,
+      'mediaPaketID': '',
+      'costProduksi': 0
+    });
+   }else{
     var param = $event.split('~');
     this.subCatID = param[0];
     this.namaBahan = param[1];
@@ -194,7 +216,7 @@ export class BusinessSimulationPage {
         }
       );
     }
-
+  }
     // } else {
     //   this.priceBahan.splice(id, 1);
     //   this.priceBahan.push({ 'value': this.addCommas(param[2]) });
@@ -332,7 +354,14 @@ unFormat(val) {
     }
 };
   calculate() {
-    if (this.anArray.length > 0 && this.itemPaket[0].pricePaket != null ) {
+    var checkdata='';
+    Object.keys(this.anArray).forEach(key => {
+
+     if(this.anArray[key]['produksi']==0){
+      checkdata='failed';
+     }
+    });
+    if (this.anArray.length > 0 && this.itemPaket[0].pricePaket != null && checkdata!='failed' ) {
 
       this.navCtrl.push(DetailSimulationPage, {
         queryParams: {

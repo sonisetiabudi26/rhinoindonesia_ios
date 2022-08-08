@@ -36,13 +36,13 @@
   <table id="customers">
     <tr>
       <td style="width: 60%;"><b>Items</b></td>
-      <td style="width: 10%;"><b>Qty</b></td>
+      <td style="width: 10%;text-align: center;"><b>Qty</b></td>
       <td style="width: 30%;"><b>Price</b></td>
     </tr>
     <tbody>
       <tr *ngFor="let group of paketAllItem;let idx = index">
         <td>{{(group.Product_Name==null?group.Product_Name_Manual:group.Product_Name)}}</td>
-        <td>{{group.Product_Qty}}</td>
+        <td style="text-align: center">{{group.Product_Qty}}</td>
         <td *ngIf="idx==0" style="text-align: right;" [attr.rowspan]="paketAllItem.length">{{hargaPaket}}</td>
       </tr>
     </tbody>
@@ -61,25 +61,25 @@
     <tr>
       <td style="width: 60%;">WHITE INK / 1L (1L = 1 roll pet film)
       </td>
-      <td style="width: 10%;">1L</td>
+      <td style="width: 10%;text-align: center;">1L</td>
       <td style="width: 30%;text-align: right;">{{getHargaJual(whiteInk)}}</td>
     </tr>
     <tr>
       <td style="width: 60%;">CMYK INK --> 1L Rp. {{getHargaJual(cmykInk)}}  (1 Set cmyk = 4 roll pet film)
       </td>
-      <td style="width: 10%;">1L</td>
+      <td style="width: 10%;text-align: center;">1L</td>
       <td style="width: 30%;text-align: right;">{{getHargaJual(cmykInk)}}</td>
     </tr>
     <tr>
       <td style="width: 60%;">PET FILM
       </td>
-      <td style="width: 10%;">1</td>
+      <td style="width: 10%;text-align: center;">1</td>
       <td style="width: 30%;text-align: right;">{{getHargaJual(petFilm)}}</td>
     </tr>
     <tr>
       <td style="width: 60%;">POWDER  (1kg powder = 1 roll pet film)
       </td>
-      <td style="width: 10%;">1KG</td>
+      <td style="width: 10%;text-align: center;">1KG</td>
       <td style="width: 30%;text-align: right;">{{getHargaJual(powder)}}</td>
     </tr>
     <tr>
@@ -100,25 +100,25 @@
     <tr>
       <td style="width: 60%;">WHITE INK / 1L (2L = 1 roll pet film)
       </td>
-      <td style="width: 10%;">2L</td>
+      <td style="width: 10%;text-align: center;">2L</td>
       <td style="width: 30%;text-align: right;">{{getHargaJual(whiteInk)}}</td>
     </tr>
     <tr>
       <td style="width: 60%;">CMYK INK --> 1L Rp. {{getHargaJual(cmykInkSatuan)}}  (1 Set cmyk = 2 roll pet film)
       </td>
-      <td style="width: 10%;">2L</td>
+      <td style="width: 10%;text-align: center;">2L</td>
       <td style="width: 30%;text-align: right;">{{getHargaJual(cmykInk)}}</td>
     </tr>
     <tr>
       <td style="width: 60%;">PET FILM
       </td>
-      <td style="width: 10%;">1</td>
+      <td style="width: 10%;text-align: center;">1</td>
       <td style="width: 30%;text-align: right;">{{getHargaJual(petFilm)}}</td>
     </tr>
     <tr>
       <td style="width: 60%;">POWDER  (2kg powder = 1 roll pet film)
       </td>
-      <td style="width: 10%;">2KG</td>
+      <td style="width: 10%;text-align: center;">2KG</td>
       <td style="width: 30%;text-align: right;">{{getHargaJual(powder)}}</td>
     </tr>
     <tr>
@@ -141,25 +141,25 @@
     <tr>
       <td style="width: 60%;">TINTA ECO SOLVENT 6 WARNA (CMYK+LCLM) --> 1L : Rp {{getHargaJual(tinta)}}
       </td>
-      <td style="width: 10%;">6L</td>
+      <td style="width: 10%;text-align: center;">6L</td>
       <td style="width: 30%;text-align: right;">{{getHargaTintaPack(tinta)}}</td>
     </tr>
     <tr>
       <td style="width: 60%;">SATUAN TINTA PER ML
       </td>
-      <td style="width: 10%;">1 ML</td>
+      <td style="width: 10%;text-align: center;">1 ML</td>
       <td style="width: 30%;text-align: right;">{{getHargaSatuan(tinta)}}</td>
     </tr>
     <tr>
       <td style="width: 60%;">ASUMSI KONSUMSI TINTA PER M²
       </td>
-      <td style="width: 10%;">10 ML</td>
+      <td style="width: 10%;text-align: center;">10 ML</td>
       <td style="width: 30%;text-align: right;">{{getHargaTinta(tinta)}}</td>
     </tr>
     <tr>
       <td style="width: 60%;">KONSUMSI TINTA CLEANING SOLUTION
       </td>
-      <td style="width: 10%;">2 ML</td>
+      <td style="width: 10%;text-align: center;">2 ML</td>
       <td style="width: 30%;text-align: right;">{{getHargaCleansing(tintaClensing)}}</td>
     </tr>
     <tr>
@@ -174,17 +174,17 @@
       <!-- <div > -->
       <tr>
         <td style="width: 60%;">{{att.nameBahan}} 1 Meter</td>
-        <td style="width: 10%;">1</td>
+        <td style="width: 10%;text-align: center;">1</td>
         <td style="width: 30%;text-align: right;">{{getHargaJual(att.hargaMaterial)}}</td>
       </tr>
       <tr>
         <td style="width: 60%;">Masking Tape</td>
-        <td style="width: 10%;">1</td>
+        <td style="width: 10%;text-align: center;">1</td>
         <td style="width: 30%;text-align: right;">{{getHargaJual(masking)}}</td>
       </tr>
       <tr>
         <td style="width: 60%;">ASUMSI OPRASIONAL COST Listrik , Karyawan , Consumable Part</td>
-        <td style="width: 10%;">1</td>
+        <td style="width: 10%;text-align: center;">1</td>
         <td style="width: 30%;text-align: right;">10,000</td>
       </tr>
       <tr>
@@ -201,23 +201,23 @@
     <tbody *ngFor="let att of detailItem;let idx = index">
       <tr *ngIf="paketID=='1'&&paketID=='2'">
         <td style="width: 60%;">{{att.nameBahan}} 1 Meter</td>
-        <td style="width: 10%;">1</td>
+        <td style="width: 10%;text-align: center;">1</td>
         <td style="width: 30%;text-align: right;">{{getHargaJual(att.hargaMaterial)}}</td>
       </tr>
       <tr *ngIf="att.mediaSablon!=''">
         <td style="width: 60%;">{{paketID==3||paketID==5||paketID==6?att.nameProduct:att.nameBahan}} uk
           {{att.ukuranDesign}} {{(att.description!=null?att.description:'')}}</td>
-        <td style="width: 10%;">1</td>
+        <td style="width: 10%;text-align: center;">1</td>
         <td style="width: 30%;text-align: right;">{{att.priceBahan}}</td>
       </tr>
       <tr *ngIf="att.mediaSablon!=''">
         <td style="width: 60%;">{{att.mediaSablon}}</td>
-        <td style="width: 10%;">1</td>
+        <td style="width: 10%;text-align: center;">1</td>
         <td style="width: 30%;text-align: right;">{{att.hargaSablon}}</td>
       </tr>
       <tr *ngIf="paketID!='5'&&paketID!='6'&&paketID!=4">
         <td style="width: 60%;">ASUMSI OPRASIONAL COST Listrik , Karyawan , Consumable Part</td>
-        <td style="width: 10%;">1</td>
+        <td style="width: 10%;text-align: center;">1</td>
         <td style="width: 30%;text-align: right;">1,000</td>
       </tr>
 
@@ -287,7 +287,7 @@
         <td style="width: 60%;">
           Cost Produksi
         </td>
-        <td style="width: 10%;">
+        <td style="width: 10%;text-align: center;">
           1
         </td>
         <td style="width: 30%;text-align: right;">{{getHargaJual(costProd)}}</td>
@@ -296,7 +296,7 @@
         <td>
           ASUMSI JUAL JASA PRINT  1M (30x100cm)
         </td>
-        <td>
+        <td style="width: 10%;text-align: center;">
           1
         </td>
         <td style="text-align: right">{{getHargaJual(item.hargaJual)}}</td>
@@ -315,7 +315,7 @@
           Cost Produksi produk {{paketID==3||paketID==5||paketID==6?item.nameProduct:item.nameBahan}}
           ({{item.mediaSablon}})
         </td>
-        <td style="width: 10%;">
+        <td style="width: 10%;text-align: center;">
           1
         </td>
         <td style="width: 30%;text-align: right;">{{getHargaJual(item.costProduksi)}}</td>
@@ -325,7 +325,7 @@
           Asumsi jual produk {{paketID==3||paketID==5||paketID==6?item.nameProduct:item.nameBahan}}
           ({{item.mediaSablon}})
         </td>
-        <td>
+        <td style="width: 10%;text-align: center;">
           1
         </td>
         <td style="text-align: right">{{getHargaJual(item.hargaJual)}}</td>
@@ -348,14 +348,14 @@
         <td style="width: 60%;">
           <b> 1 hari Produksi {{item.mediaSablon}}</b>
         </td>
-        <td style="width: 10%;">{{item.produksi}}</td>
+        <td style="width: 10%;text-align: center;">{{item.produksi}}</td>
         <td style="width: 30%;text-align: right;"><b>{{valueTotalproduksi(idx)}}</b></td>
       </tr>
       <tr style="background-color: #000;color:#fff;">
         <td>
           <b>1 bulan / 25 hari produksi {{item.mediaSablon}}</b>
         </td>
-        <td>{{valueProduksimonth(idx)}}</td>
+        <td style="text-align: center;">{{valueProduksimonth(idx)}}</td>
         <td style="text-align:right "><b>{{ValueTotalproduksimonth(idx)}}</b></td>
       </tr>
     </tbody>
